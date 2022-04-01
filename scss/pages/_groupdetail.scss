@@ -1,0 +1,186 @@
+/* ---團封面照--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap {
+    padding-top: 100px;
+}
+
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        border-radius: 10px;
+        max-height: 300px;
+    }
+}
+
+/* ---團主大頭貼和名字--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .info {
+    display: flex;
+    align-items: center;
+
+    .initiatorPic {
+        margin-right: 3%;
+        width: 50px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        &::before{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            position: relative;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+/* ---團的標題--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .cardText {
+    line-height: 160%;
+}
+
+/* ---團的熱門搜尋關鍵字和剩餘名額--- */
+.groupdetailCoverInfo .groupdetailCoverInfo_wrap .spot_wrap {
+    text-align: end;
+}
+
+/* ---團的旅程資訊和留言區--- */
+.groupdetailInfo .groupdetailInfo_wrap {
+    .messageScrollbar {
+
+        /* 捲軸寬度設定 */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 2px;
+        }
+
+        /* 捲軸把手顏色 */
+        ::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(180deg, #007183 0%, #fff 99%);
+            box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+            border-radius: 100px;
+        }
+
+        /* 捲軸背景顏色 */
+        ::-webkit-scrollbar-track {
+            background: #E2E1E0;
+        }
+    }
+
+    .tourInfo {
+        .timeline {
+            width: 100%;
+            margin-top: 0px;
+            padding: 0px 20px 0px 20px;
+        }
+    }
+
+    .second-title.messageTitle{
+        margin: 30px 0;
+        display: flex;
+        justify-content: space-between;
+        .pic{
+            margin-left: 10px;
+        }
+    }
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message {
+    height: 500px;
+    overflow-y: scroll;
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+
+    .message_wrap {
+        background-color: #fff;
+        padding: 10px 10px;
+        border-bottom: 1px solid #aaa;
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message .message_wrap .header {
+    .pic {
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        margin-right: 3%;
+
+        img {
+            border-radius: 50%;
+            height: 100%;
+        }
+    }
+}
+
+.groupdetailInfo .groupdetailInfo_wrap .message .leaveMessage {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+
+    #inputBox {
+        background-color: #ddd;
+        color: black;
+        width: 100%;
+        resize: none;
+        border: none;
+        border-radius: 10px 0px 0px 10px;
+    }
+
+    #leaveMessageBtn {
+        border: none;
+        cursor: pointer;
+        background: #007183;
+        color: #fff;
+    }
+}
+
+/* ---參團懸浮按紐--- */
+.joinBtn {
+    border: none;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    position: fixed;
+    top: 50%;
+    right: 1%;
+    cursor: pointer;
+    background-color: $accentColor;
+    color: #ffffff;
+    display: none;
+    z-index: 5;
+}
+
+.showJoinBtn {
+    display: block;
+    transition: 600ms ease-in-out;
+    animation: groupdetail_move .5s;
+    transform: translateY(50%);
+}
+
+/* only for width below 768px */
+@media screen and (max-width:768px) {
+    .groupdetailInfo .groupdetailInfo_wrap .col-12 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .groupdetailCoverInfo .groupdetailCoverInfo_wrap .cover_wrap {
+        margin-bottom: 30px;
+    }
+
+}

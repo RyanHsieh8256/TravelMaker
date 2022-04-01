@@ -1,0 +1,75 @@
+.footer_Wrap{
+    background-color: $FooterBGColor;
+    padding: 20px 0;
+    max-width: 1920px;
+    margin: auto;
+    .footerBlock{
+        width: 90%;
+        margin: auto;
+    }
+}
+.footerMedia{
+    font-size: 20px;
+    text-align: center;
+    li{
+        font-size: 30px;
+        padding: 0 20px;
+        color: $FooterIconColor;//icon顏色
+        &:hover{
+            color: $accentColor;//icon區hover色
+        }
+    }
+}
+.footerContect{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color:$FooterIconColor;//聯絡資料顏色
+    text-align: center;
+    font-size: 14px;
+    padding: 20px 0;
+    li{
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    a{
+        color:$FooterIconColor;//聯絡資料顏色
+    }
+}
+.footerTerms{
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+    a{
+        color:$FooterIconColor;//條約顏色
+        & + a li::before{
+            content: '|';
+            padding: 0 15px;
+        }
+    }
+}
+.footerCopyRight{
+    text-align: center;
+    color: #999;//著作權顏色
+    font-size: 8px;
+}
+
+// @media screen and (min-width:768px) {
+    
+// }
+@media screen and (min-width:996px) {
+    .footer_Wrap{
+        .footerContect{
+            flex-direction: row;
+            // justify-content:space-evenly;
+            
+        }
+    }
+}
+
+// @media screen (min-width:1200px) {
+    
+// }

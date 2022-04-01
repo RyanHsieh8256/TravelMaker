@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    font-family: serif;
+    cursor: pointer;
+}
+
+img {
+    vertical-align: top;
+    width: 100%;
+    object-fit: cover;
+}
+/*網頁本身的捲軸*/
+/* 網頁捲軸【寬度】 */
+::-webkit-scrollbar {
+    width: 15px;
+}
+/* 網頁捲軸【背景】顏色 */
+::-webkit-scrollbar-track {
+    background-color: rgba(223, 223, 223, 0.836);;
+    // background: #007183;
+}
+/* 網頁捲軸【把手】顏色 */
+::-webkit-scrollbar-thumb {
+    background: #007183;
+    border-radius: 100px;
+}
+/* 網頁捲軸【滑過時】把手的顏色 */
+::-webkit-scrollbar-thumb:hover {
+    background: #007183;
+}
+
+input:focus {
+    outline: none;
+  }

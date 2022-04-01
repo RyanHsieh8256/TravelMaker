@@ -1,0 +1,87 @@
+// 字體設定 (蘇)
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap&family=Caveat:wght@400;500;600;700');
+body {
+    font-family:'Noto Sans TC', sans-serif;
+    // 'Caveat','Noto Serif TC',
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #333;
+    background-color: $bodyBGcolor;
+}
+
+.main-title {
+    font-family: 'Caveat',serif;
+    font-size: 85px;
+     font-weight: 700;
+     color: transparent;
+     -webkit-text-stroke: 2px #007183;
+     letter-spacing: 10px;
+     padding: 10px;
+     
+   }
+ 
+.second-title {
+  font-family: 'Caveat',serif;
+   font-weight: 600;
+   padding: 10px;
+   font-size: 30px;
+   line-height: 1.5;
+   color: #007183;
+   position: relative;
+   z-index: 2;
+   
+   
+   &:before {
+     position: absolute;
+     width: 60px;
+     height: 60px;
+     content: '';
+     top: 20%;
+     left: 0;
+     background-color: #FF7E29aa;
+     border-radius: 50%;
+     z-index: 1;
+   }
+   
+   span {
+     display: block;
+     font-size: 60px;
+     
+   }
+
+  //  只要中文的標題 .second-title--ch
+   &--ch {
+    font-weight: 600;
+    padding: 10px;
+    font-size: 30px;
+    line-height: 1.5;
+    color: #007183;
+   }
+ }
+ 
+
+ .p-text {
+   font-weight: 600;
+   color: #463828;
+   font-size: 16px;
+
+   &#tourInfo {
+    white-space: pre-line;
+    margin: 20px 0;
+   }
+ }
+
+
+//  設定標題位置
+ .t-center {
+   display: flex;
+   justify-content: center;
+   text-align: center;
+
+ }
+
+ .t-right {
+    text-align: right;
+}
+

@@ -1,0 +1,362 @@
+
+//文字隱藏
+.text_Overflow {
+    overflow:hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+.text_Overflow_One {
+    overflow:hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+}
+@media screen and (min-width:768px) {
+    .text_Overflow {
+        -webkit-line-clamp: 2;
+    }
+
+}
+@media screen and (min-width:996px) {
+    .text_Overflow {
+        -webkit-line-clamp: 2;
+    }
+}
+
+.memberInfoBlock{
+    padding-top:60px;
+    width: 95%;
+    margin: auto;
+}
+//左側帳號設定
+.memberAccountWarp{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    .memberAccount{
+        box-shadow: 1px 1px 3px #aaa;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: $white;
+        width: 45%;
+        .memberAccountPhto{
+            position: relative;
+            width: 70%;
+            margin: 20px auto;
+            clip-path: circle(50%);
+            &::before{
+                content: '';
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 100%;
+            }
+            img{
+                position:absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+            }
+        }
+        .memberAccountName{
+            text-align: center;
+            font-size: $card-title;
+        }
+    }
+    .memberAccountSetting{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 1px 1px 3px #aaa;
+        border-radius: 10px;
+        padding: 10px 0;
+        background-color: $white;
+        width: 50%; 
+        a{
+            // color: $white;
+            // background-color: $FooterSubColor;
+            color: #333;
+            background-color:$white;
+            padding:10px 30px;
+            cursor:pointer;
+            border-radius: 10px;
+            transition: .2s;
+        }
+
+    }
+}
+
+@media screen and (min-width:768px) {
+    .memberAccountWarp{
+        display: block;
+        .memberAccount{
+            width: auto;
+        }
+        .memberAccountSetting{
+            margin-top:20px ;
+            width: auto;
+        }
+    }
+}
+
+//右側表單區 共通部分
+.memberProfileWarp{
+    padding: 10px 0;
+    .memberProfile{
+        &+.memberProfile{
+            display: none;
+            
+        }
+    }
+}
+
+.mem_sectionBG{
+    box-shadow: 1px 1px 3px #aaa;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: $white;
+}
+
+
+.memberBlockTtile{
+    font-size: $third-title;
+    padding: 10px;
+    border-bottom: #333 1px solid;
+}
+
+//區域1 基本資料設定
+
+.InfoSettingForm{
+    width: 100%;
+    th,td{
+        padding: 10px 20px;
+        border-bottom: 1px solid #3332;
+        text-align: left;
+        input{
+            display: inline-block;
+            height: 30px;
+            width: 100%;
+            max-width: 250px;
+        }
+        @media screen and (min-width:768px) {
+            input{
+                width: 70%;
+            }
+        }
+        .memName~span{
+            display: inline-block;
+            margin-top: 5px;
+        }
+        #iconFile~.dataChangBtn{
+            display: inline-block;
+            margin-top: 5px;
+        }
+    }
+    td.iconChangButton{
+        font-size: 12px;
+        color: rgb(63, 63, 63);
+    }
+}
+
+
+// 共用卡片
+
+
+.horizontalcard{
+    display: flex;
+    justify-content:flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    border-bottom: 1px solid #3333;
+    .horizontalcard_pic{
+        width: 60%;
+        min-width: 200px;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    .horizontalcard_content{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        padding-left: 5px;
+        .horizontalcard_title{
+            font-size: $card-title;
+            font-weight: 700;
+        }
+        .horizontalcard_text{
+            font-size: $card-text;
+        }
+    }
+    .horizontalcard_date{
+        font-size: 8px;
+        color: #666;
+        display: flex;
+        justify-content: space-between;
+    }
+    .horizontalcard_footer{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        font-size: $card-text;
+        .horizontalcard_footerItem{
+            padding-left:10px;
+        }
+        .horizontalcard_date{
+            font-size:8px;
+            color: #999;
+        }
+        a{
+            color: $FooterSubColor;
+
+        }
+    }
+}
+
+
+@media screen and (min-width:768px) {
+    .horizontalcard{
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+@media screen and (min-width:996px) {
+    .horizontalcard{
+        flex-wrap: nowrap;
+        .horizontalcard_pic{
+            width: 30%;
+        }
+        .horizontalcard_content{
+            width: 70%;
+        }
+    }
+}
+
+
+.horizontalcard_empty{
+    display: none;
+    height: 150px;
+    p{
+        border: #3333 1px solid;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+.newTourBtn{
+    width: 100%;
+    margin: 20px auto 0 auto;
+    padding: 5px 0;
+    border-radius:10px ;
+    background-color:$FooterSubColor;
+    color: $white;
+    text-align: center;
+}
+
+//區域3 我的揪團
+
+
+//區域4 我的訂單
+.horizontalcard_oder{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top:5px;
+    h4{
+        font-size: 14px;
+        color: #aaa;
+        font-weight: 400;
+        padding: 5px 0;
+    }
+
+    &>div{
+        padding-right: 5%;
+    }
+    .horizontalcard_oder_6{
+        width: 50%;
+    }
+    .horizontalcard_oder_3{
+        width: 25%;
+    }
+}
+
+.horizontalcard_oderDetail{
+    li{
+        border-bottom: .4px solid#6663;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.dataChangBtn{
+    cursor: pointer;
+    padding: 3px 15px;
+    font-size: .9rem;
+    border-radius: 50px;
+    border: none;
+    background-color: $FooterSubColor;
+    color: $white;
+}
+
+//變更密碼
+.memPswChang{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f0eee7;
+    box-shadow: #333 0 0 3px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: none;
+
+    width: 400px;
+    table{
+        width: 100%;
+        margin: auto;
+        tr:first-child{
+            background-color: #007183;
+            color: $white;
+        }
+        th,td{
+            height: 30px;
+            padding: 10px 0;
+            input{
+                border-radius: 3px;
+                border: none;
+                outline: none;
+                padding: 5px;
+                box-shadow: inset 0px 0px 2px #333;
+            }
+        }
+    }
+    .memPswChangCancel{
+        text-align: right;
+        position: absolute;
+        top: 0;
+        right: 0;
+        button{
+            color: #fff;
+        }
+    }
+    .memPswChangBtn{
+        padding: 5px 10px;
+        border-radius: 50px;
+        border: none;
+        background-color: $FooterSubColor;
+        color: $white;
+    }
+}

@@ -1,0 +1,230 @@
+.groupform_body{
+    background: url(../images/groupform/groupform_BG.jpg) no-repeat;
+    background-size: cover;
+    height:100%;
+}
+
+// 上傳封面區
+.groupform{
+    padding-top: 100px;
+    backdrop-filter: blur(5px);
+}
+.groupform .groupform_wrap{
+    width: 80%;
+    margin: auto;
+    padding: 0px 30px;
+    background-color: #F0EEE7;
+    border-radius: 10px;
+    .title{
+        padding: 10px 0;
+    }
+}
+.groupform .groupform_wrap .uploadCover{
+    border: #3333 1px solid;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+    .header{
+        margin: auto;
+        .btn{
+            cursor: pointer;
+        }
+    }
+    .dropZone{
+        position: relative;
+        width: 90%;
+        border: #3333 1px solid;
+        margin: 15px auto;
+        overflow: hidden;
+        &::before{
+            content: "";
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom:60% ;
+        }
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        &_title{
+            color: #aaa9;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+//開始填表單區
+.groupform .groupform_wrap .fieldSection{
+    margin: 30px 0;
+}
+.groupform {
+    &_desc{
+        display: block;
+        .desc{
+            width: 100%;
+            resize: none;
+        }
+    }
+    &_date{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+//必填欄位設定區
+.must{
+    color: #f00;
+}
+
+//出現在旁邊的提醒訊息
+.alertMessage{
+    color: #f00;
+    margin-left: 2%;
+}
+//針對日曆
+.date_wrap{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+.datepicker_wrap{
+    position: relative;
+    display: initial;
+    margin: 5px 0;
+}
+.ui-datepicker-trigger{
+    cursor: pointer;
+    max-width: 30px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-40%);
+}
+
+//人數加減按鈕
+.groupform_peopleNum{
+    display: flex;
+    flex-direction: column;
+    &_btnWrap{
+        margin: 5px 0;
+    }
+    .numBtn{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #007183;
+        color: #fff;
+    }
+    input[type=text]{
+        text-align: center;
+    }
+}
+
+//分攤方式下拉選單
+.groupform .groupform_wrap .share{
+    display: flex;
+    flex-direction: column;
+    //下拉選單間距
+    .dropdownMenu{
+        margin: 5px 0;
+        width: 50%;
+    }
+}
+
+//針對送出區的按鈕
+.btnSection{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    .btn{
+        margin: 0px 10px;
+    }
+}
+
+//表單驗證placeholder改紅色提示
+.alertTxtMust::-webkit-input-placeholder{
+    color: #f00;
+}
+
+//提醒視窗
+.alertBG{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    &_wrap{
+        width: 300px;
+        height: 150px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        background: #F0EEE7;
+        animation: shining 2s infinite;
+    }
+    @keyframes shining {
+        30%{
+            box-shadow:rgba(0, 113, 133, 1) 0px 0px 10px;
+        }
+        50%{
+            box-shadow:rgba(0, 113, 133, .5) 0px 0px 20px;
+        }
+        70%{
+            box-shadow:rgba(0, 113, 133, 1) 0px 0px 40px;
+        }
+        100%{
+            box-shadow:rgba(0, 113, 133, .5) 0px 0px 50px;
+        }
+    }
+    &_closeBtn{
+        position: absolute;
+        top: -10%;
+        right: -7%;
+        .bi.bi-x-circle-fill{
+            font-size: 25px;
+            color: #007183;
+        }
+    }
+    &_content{
+        text-align: center;
+        font-weight: 700;
+        color: rgb(255,126,41);
+        // background: #F0EEE7;
+        border-radius: 10px;
+    }
+}
+
+//平板以上
+@media screen and (min-width: 768px) {
+    //整份表單的寬度
+    .groupform .groupform_wrap{
+        width: 60%;
+    }
+    
+    //整體欄位變成橫向排列
+    .date_wrap, .groupform_peopleNum, .share{
+        flex-direction: row;
+    }
+
+    //橫向排列後取消上下margin，新增左右
+    .datepicker_wrap, .groupform_peopleNum_btnWrap, .share .dropdownMenu{
+        margin: 0% 0% 0% 2%;
+    }
+}

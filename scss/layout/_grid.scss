@@ -1,0 +1,179 @@
+// amos老師的格線系統 (蘇)
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+  }
+
+.drag-row {
+    display: flex;
+    overflow: hidden;
+}
+
+  [class*="col-"] {
+    padding: 0 1rem;
+    margin: 1% 0;
+  }
+
+
+  .col {
+
+    &-1 {
+        width: 8.333333%;
+    }
+    &-2 {
+        width: 16.666666%;
+    }
+    &-3 {
+        width: 25%;
+    }
+    &-4 {
+        width: 33.3333%;
+    }
+    &-5 {
+        width: 41.6667%;
+    }
+    &-6 {
+        width: 50%;
+    }
+    &-7 {
+        width: 58.3333%;
+    }
+    &-8 {
+        width: 64.6667%;
+    }
+    &-9 {
+        width: 75%;
+    }
+    &-10 {
+        width: 83.3333%;
+    }
+    &-11 {
+        width: 91.6667%;
+    }
+    &-12 {
+        width: 100%;
+    }
+
+    /* 平板直up */
+    @media screen and (min-width: 768px) {
+        &-md-1 {
+        width: 8.333333%;
+        }
+        &-md-2 {
+        width: 16.666666%;
+        }
+        &-md-3 {
+        width: 25%;
+        }
+        &-md-4 {
+        width: 33.3333%;
+        }
+        &-md-5 {
+        width: 41.6667%;
+        }
+        &-md-6 {
+        width: 50%;
+        }
+        &-md-7 {
+        width: 58.3333%;
+        }
+        &-md-8 {
+        width: 64.6667%;
+        }
+        &-md-9 {
+        width: 75%;
+        }
+        &-md-10 {
+        width: 83.3333%;
+        }
+        &-md-11 {
+        width: 91.6667%;
+        }
+        &-md-12 {
+        width: 100%;
+        }
+    }
+
+    /* 平板橫up */
+    @media screen and (min-width: 992px) {
+        &-lg-1 {
+        width: 8.333333%;
+        }
+        &-lg-2 {
+        width: 16.666666%;
+        }
+        &-lg-3 {
+        width: 25%;
+        }
+        &-lg-4 {
+        width: 33.3333%;
+        }
+        &-lg-5 {
+        width: 41.6667%;
+        }
+        &-lg-6 {
+        width: 50%;
+        }
+        &-lg-7 {
+        width: 58.3333%;
+        }
+        &-lg-8 {
+        width: 64.6667%;
+        }
+        &-lg-9 {
+        width: 75%;
+        }
+        &-lg-10 {
+        width: 83.3333%;
+        }
+        &-lg-11 {
+        width: 91.6667%;
+        }
+        &-lg-12 {
+        width: 100%;
+        }
+    }
+
+    /* 桌機 */
+    @media screen and (min-width: 1200px) {
+        &-xl-1 {
+        width: 8.333333%;
+        }
+        &-xl-2 {
+        width: 16.666666%;
+        }
+        &-xl-3 {
+        width: 25%;
+        }
+        &-xl-4 {
+        width: 33.3333%;
+        }
+        &-xl-5 {
+        width: 41.6667%;
+        }
+        &-xl-6 {
+        width: 50%;
+        }
+        &-xl-7 {
+        width: 58.3333%;
+        }
+        &-xl-8 {
+        width: 64.6667%;
+        }
+        &-xl-9 {
+        width: 75%;
+        }
+        &-xl-10 {
+        width: 83.3333%;
+        }
+        &-xl-11 {
+        width: 91.6667%;
+        }
+        &-xl-12 {
+        width: 100%;
+        }
+    }
+
+  }

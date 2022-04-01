@@ -1,0 +1,682 @@
+// 首頁個別設定 (蘇)
+
+.homeSecond-title {
+    font-size: 9vh;
+    font-weight: 700;
+    line-height: 1.2;
+
+    @media screen and (max-width: 768px) {
+        font-size: 40px;
+    }
+}
+
+.third-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    
+}
+
+.p-span {
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+
+
+
+
+// 開頭動畫
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    z-index: 3000;
+    background-color: $FooterBGColor;
+}
+
+.first {
+top: 0;
+}
+
+.second {
+top: 33.3%
+}
+
+.third {
+top: 66.6%;
+}
+
+.l-hori {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    padding: 5% 2%;
+    
+    @media screen and (min-width: 1200px) {
+        height: 100%;
+        min-width: 100vw;
+        padding: 0 1%;
+        
+    }
+}
+
+.as-end {
+    align-self: end;
+}
+
+
+.progress_bar {
+    position: fixed;
+    background-color: #ece9e6;
+    z-index: 1000;
+    left: 3%;
+
+    @media screen and (min-width: 1199px) {
+        bottom: 5%;
+        width: 70%;
+        height: 1.5px;
+    }
+
+    @media screen and (max-width: 1200px) {
+        width: 2px;
+        height: 70%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.progress_barNav {
+    position: absolute;
+    transition: width .2s ease;
+    height: 1.5px;
+    background-color: #CDA24F;
+    transition: width .2s ease;
+    z-index: 1100;
+}
+
+.homeNav {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1100;
+    padding: 2px 10px;
+
+    @media screen and (max-width: 1200px) {
+        background-color: rgba(255, 255, 255, .7);
+    }
+}
+
+// iconNav
+.iconNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+    min-width: 100px;
+    max-width: 200px;
+    padding: 0 20px;
+    z-index: 2200;
+
+    &-item {
+        max-width: 50px;
+        text-align: center;
+        cursor: pointer;
+
+        .bi {
+            font-size: 23px;
+        }
+    }
+
+    &-link {
+        color: #000;
+        display: block;
+    }
+
+    @media screen and (max-width: 1200px) {
+        width: 60%;
+    }
+
+}
+
+
+.burger-toggle {
+    cursor: pointer;
+    .bi {
+        font-size: 30px;
+    }
+}
+
+// 導覽列會員調整
+.home {
+
+    &_memIcon {
+        overflow: hidden;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    &_navDropdownMenu {
+        right: 1%;
+
+        a {
+            color: #333;
+
+            &:hover {
+                color: #ff7e29;
+            }
+        }
+
+        &::before {
+            left: 44%;
+        }
+    }
+    
+}
+
+
+
+
+
+/* image Map */
+.imageMap {
+    width: 100%;
+    height: 80vh;
+    margin-top: 10vh;
+    background: url('../images/bg-02_1.svg');
+    background-size: 30%;
+    position: relative;
+    overflow: hidden;
+
+    &_card {
+        display: none;
+
+        @media screen and (min-width: 1200px) {
+            display: block;
+            position: absolute;
+            width: 30vh;
+            max-width: 200px;
+            padding: 8px 8px 50px 8px;
+            background-color: #fdf5f5;
+            box-shadow: rgba(55, 93, 136, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 7px;
+                height: 22px;
+                background-color: #D5B58F;
+                top: -16px;
+                left: 50%;
+                box-shadow: rgba(133, 109, 81, 0.15) 1.95px 1.95px 2.6px;
+                transform: rotate(7deg);
+                border-bottom: 1px solid #856c3bad;
+            }
+
+            &:first-child {
+                top: 5%;
+                left: 3%;
+            }
+
+            &:nth-child(2) {
+                top: 8%;
+                left: 40%;
+                transform: rotate(7deg);
+            }
+
+            &:nth-child(3) {
+                top: 55%;
+                left: 45%;
+                transform: rotate(-5deg);
+            }
+
+            &:nth-child(4) {
+                top: 10%;
+                right: 6%;
+                transform: rotate(-3deg);
+            }
+
+            &:nth-child(5) {
+                top: 42%;
+                left: 12%;
+                transform: rotate(10deg);
+            }
+
+            &:nth-child(6) {
+                bottom: 10%;
+                right: 3%;
+                
+            }
+                
+        }
+        
+
+    }
+
+
+    
+}
+
+
+
+.home {
+
+    &_body {
+        font-family: 'Caveat','Noto Sans TC', sans-serif;
+        background-color: #ECEBE8;
+
+        @media screen and (min-width: 1200px) {
+            overflow: hidden;
+        }
+    }
+
+    &_wrap {
+        display: block;
+        position: relative;
+        
+        @media screen and (min-width: 1200px) {
+            display: flex;
+        }
+    }
+
+    &_logo {
+       width: 5%;
+       min-width: 50px;
+       position: relative;
+
+       &--link {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+       }
+    }
+
+    &_flex {
+        display: flex;
+
+        @media screen and (max-width: 1199px) {
+            display: block;
+        }
+    }
+
+    
+    
+}
+
+.homeBanner {
+
+    &_wrap {
+        position: relative;
+    }
+
+    &_title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 2;
+
+        .p-text {
+            background-color: #83D8D1aa;
+            border-radius: 10px;
+            padding: 10px 0;
+            display: inline-block;
+        }
+        
+        @media screen and (min-width: 1200px) {
+            left: 10%;
+            transform: translateY(-50%);
+
+            .p-text {
+                background-color: transparent;
+                padding: 0;
+                display: block;
+            }
+        }
+    }
+
+    &_box {
+        display: flex;
+        margin-left: auto;
+        justify-content: flex-end;
+        height: 100vh;
+    }
+}
+
+
+
+.homeTour {
+
+    &_box {
+        padding: 2% 4%;
+
+        @media screen and (max-width: 768px) {
+            padding: 4% 1%;
+            width: 100%;
+        }
+    }
+
+    &_row {
+        align-items: center;
+    }
+
+    &_order {
+
+        @media screen and (max-width: 768px) {
+            order: 1;
+        }
+        
+    }
+
+    &_suggest {
+        background-color: #f5f5f5;
+        display: flex;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    &_point {
+        position: relative;
+        height: 40vh;
+    
+    
+        &::before {
+            content: '';
+            position: absolute;
+            width: auto;
+            height: 1px;
+            background-color: #ccc;
+            top: 50%;
+            left: 10vh;
+            right: 10vh;
+            transform: rotate(40deg);
+        }
+
+        &--start,&--end {
+            position: absolute;
+            font-weight: 600;
+        }
+
+        &--start {
+            top: 8vh;
+            left: 3vh;
+        }
+
+        &--end {
+            bottom: 8vh;
+            right: 3vh;
+        }
+    }
+
+    &_map {
+        width: 100%;
+        height: 64vh;
+    }
+
+    &_title {
+        text-align: right;
+    }
+} 
+
+
+.homeGroup {
+
+    &_wrap {
+        // display: flex;
+        position: relative;
+    }
+
+    &_flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (max-width: 768px) {
+            display: block;
+        }
+    }
+
+    &_title {
+        display: flex;
+        align-items: center;
+
+        .p-span {
+            margin-left: 40px;
+        }
+
+        @media screen and (max-width: 768px) {
+            margin-bottom: 20px;
+            display: block;
+        }
+    }
+
+    &_btnBox {
+        display: flex;
+        width: 20%;
+        justify-content: space-between;
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+
+            > a {
+                margin-left: 20px;
+            }
+
+        }
+    }
+
+    &_card {
+        position: relative;
+    }
+
+    &_link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+.homeShop {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 80vw;
+    margin: auto;
+
+    @media screen and (max-width:768px) {
+        padding: 10% 1%;
+        display: block;
+
+    }
+
+    &_wrap {
+        display: flex;
+        position: relative;
+        padding-top: 5vh;
+
+        @media screen and (max-width: 768px) {
+            display: block;
+        }
+    }
+
+    &_title {
+
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        @media screen and (max-width: 768px) {
+            position: static;
+            transform: translate(0);
+            z-index: 0;
+        }
+    }
+
+    &_box {
+        margin: 0 auto;
+        background-size: cover;
+        width: 60%;
+
+        @media screen and (max-width:768px) {
+            width: 100%;
+            padding: 3%;
+            
+        }
+    }
+
+    &_grid {
+        margin-left: auto;
+        margin-right: 20vw;
+        width: 100%;
+        height: 80vh;
+        display: grid;
+        grid-template-columns: 1fr .2fr 1fr 1fr .2fr 1fr 1fr;
+        grid-template-rows: 10% 10% 60% 10% auto;
+        outline-style: solid;
+        outline-color:#F0EEE7;
+        outline-width: 1vw;
+        background-image: url('https://im.marieclaire.com.tw/m800c533h100b0/assets/mc/202009/5F52331B8C97A1599222555.jpeg');
+        background-size: cover;
+        background-attachment: fixed;
+
+        & > div {
+            background-color: #F0EEE7; 
+        }
+
+        @media screen and (max-width: 768px) {
+            height: 60vh;
+        }
+
+       
+    }
+
+    
+
+    &_img {
+        width: 22%;
+        height: 70vh;
+        background-color: #000;
+
+        &:nth-child(3),&:nth-child(4) {
+            margin-top: -5vh;
+        }
+    }
+
+}
+
+div.homeRow {
+    &_0e,&_0f,&_1b,&_1c,&_1d,&_1e,&_1f,&_2a,&_2b,&_2c,&_2e,&_2f,&_3a,&_3b,&_3c,&_4a {   
+        position: relative;
+        background-color:rgba(204, 199, 155, 0.3);
+        border-right: 1vw solid #F0EEE7;
+        transition: .5s ease-in-out;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+
+        &:hover {
+            background-color: transparent;
+        }
+       
+    } 
+}
+
+.homeRow_link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    
+}
+
+.homeFooter {
+    position: relative;
+
+    @media screen and (min-width: 1200px) {
+        width: 20vw;
+    }
+    
+    &::before {
+        content: '';
+        width: 80%;
+        height: 1px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #007183;
+
+        @media screen and (min-width: 1200px) {
+            width: 1px;
+            height: 80%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+    }
+
+    &_nav {
+        padding: 40px 0;
+
+        @media screen and (min-width: 1200px) {
+            padding: 0;
+            width: 20vw;
+            height: 100%;
+        }
+    }
+
+    &_list {
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        @media screen and (min-width: 1200px) {
+            height: 100%;
+            flex-direction: column;
+        }
+    }
+
+    &_item {
+        
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &_link {
+        font-weight: 600;
+        color: #007183;
+    }
+}
+

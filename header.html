@@ -1,0 +1,157 @@
+<!-- 導覽列 -->
+<nav class="nav_Wrap">
+    <section class="navBlock">
+        <a href="home.html">
+            <h1 class="navLogo">
+                <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+            </h1>
+        </a>
+        <ul class="mainNav">
+            <a href="tour.html"><li>行程規劃</li></a>
+            <a href="group.html"><li>揪團旅行</li></a>
+            <a href="shop.html"><li>景點門票</li></a>
+            <a href="postcard.html"><li>客製明信片</li></a>
+        </ul>
+        <ul class="navMember">
+            <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+            <li>
+                <div id="loginBoxBtn" class="loginBoxBtn">
+                    <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                </div>
+                <div id="memBoxBtn" class="memBoxBtn">
+                    <div class="memIcon">
+                        <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                    </div>
+                    <span id="memName"></span>
+                </div>
+                <!-- 登入後的會員選單-->
+                <ul class="navDropdownMenu">
+                    <li class="navDropdownMenuItem">
+                        <a href="mem.html">
+                            <i class="bi bi-gear"></i> 帳號設定
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memtour.html">
+                            <i class="bi bi-calendar2"></i> 我的行程
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memcollect.html">
+                            <i class="bi bi-bookmark-heart"></i> 我的收藏
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memgro.html">
+                            <i class="bi bi-file-person"></i> 我的揪團
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memorder.html">
+                            <i class="bi bi-bag"></i> 我的訂單
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem" id="logOutBtn">
+                        <i class="bi bi-door-closed"></i> 登出
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="burger-toggle">
+                    <i class="bi bi-list"></i>
+                </div>
+            </li>
+        </ul>
+    </section>          
+</nav>
+<!-- 漢堡 -->
+<div class="navPage">
+<button class="navPage--close">
+    <span class="close_line"></span>
+    <span class="close_line"></span>
+    </button>
+<div class="navPage_wrap">
+<!--     <div class="navPage_header"></div> -->
+    <div class="navPage_content">
+<!--       <div class="navPage_logo"></div> -->
+        <div class="navPage_box">
+            <nav class="navPage_nav">
+                <ul class="navPage_list">
+                    <li class="navPage_item">
+                        <div class="navPage_header">
+                        <span class="navPage_header--num">01</span>
+                        <span class="navPage_header--line"></span>
+                        </div>
+                        <div class="navPage_text">
+                        <span class="navPage_text--en">Plan journey</span>
+                        <span class="navPage_text--ch">行程規劃</span>
+                        </div>
+                        <a href="tour.html" class="navPage_link"></a>
+                    </li>
+                    <li class="navPage_item">
+                        <div class="navPage_header">
+                        <span class="navPage_header--num">02</span>
+                        <span class="navPage_header--line"></span>
+                        </div>
+                        <div class="navPage_text">
+                        <span class="navPage_text--en">All together</span>
+                        <span class="navPage_text--ch">揪團旅行</span>
+                        </div>
+                        <a href="group.html" class="navPage_link"></a>
+                    </li>
+                    <li class="navPage_item">
+                        <div class="navPage_header">
+                        <span class="navPage_header--num">03</span>
+                        <span class="navPage_header--line"></span>
+                        </div>
+                        <div class="navPage_text">
+                        <span class="navPage_text--en">Shop</span>
+                        <span class="navPage_text--ch">景點門票</span>
+                        </div>
+                        <a href="shop.html" class="navPage_link"></a>
+                    </li>
+                    <li class="navPage_item">
+                        <div class="navPage_header">
+                        <span class="navPage_header--num">04</span>
+                        <span class="navPage_header--line"></span>
+                        </div>
+                        <div class="navPage_text">
+                        <span class="navPage_text--en">Postcard</span>
+                        <span class="navPage_text--ch">客製明信片</span>
+                        </div>
+                        <a href="postcard.html" class="navPage_link"></a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>  
+</div>
+</div>
+<!-- 登入表單 -->
+<div class="froLoginBG" id="froLoginBG">
+<section class="froLoginBlock" id="froLoginBlock">
+    <!-- 取消按鈕 -->
+    <div class="froLoginCancel">
+        <button><i class="bi bi-x-circle-fill"></i></button>
+    </div>
+    <!-- 註冊/登入 -->
+    <div class="froLoginSwitch">
+        <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+            登入
+        </div>
+        <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+            註冊
+        </div>
+    </div> 
+    <!-- 表單區 -->
+    <transition name="frologintransition" mode="out-in">
+        <keep-alive>
+            <component :is='content'></component>
+        </keep-alive>
+    </transition>
+    <transition name="mascottransition">
+        <component :is='content2'></component>
+    </transition>
+</section>
+</div>
