@@ -1,0 +1,19 @@
+//揪團動畫區(柯)
+//group.html
+@keyframes groupMarquee_move {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+// groupdetail.html
+@keyframes groupdetail_move {
+    from {
+        transform: translateY(-150%);
+    }
+    to {
+        transform: translateY(50%);
+    }
+}

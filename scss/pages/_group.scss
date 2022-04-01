@@ -1,0 +1,200 @@
+/* ---流動圖片區--- */
+.groupMarquee {
+    &_wrap {
+        overflow: hidden;
+        padding-top: 100px;
+    }
+    .pic{
+        display: flex;
+        animation: groupMarquee_move 100s linear infinite running;
+
+        img{
+            width: 50%;
+        }
+    }
+}
+/* ---熱門揪團城市區---*/
+.groupCities{
+    margin: 30px 0;
+
+    &_wrap .txtAnimation_txt{
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 30px;
+        position: relative;
+    }
+
+    &_wrap .row{
+        .pic{
+            padding-bottom: 10px;
+        }
+        img{
+            border-radius: 50% 0%;
+        }
+        .txt{
+            text-align: center;
+        }
+    }   
+}
+/* ---搜尋欄---*/
+.groupSearchBar{
+    margin: 30px 0;
+}
+
+.search{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(50%,-50%);
+    width: 60px;
+    height: 30px;
+    border-radius: 20px 0px 20px 0px;
+    cursor: pointer;
+    border: 2px solid #007183;
+    background-color: #007183;
+    &_wrap{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    &_input{
+        width: 80%;
+        height: 30px;
+        border-radius: 50px;
+        padding: 0px 10px;
+        border: 2px solid #3BAFE5;
+        outline: none;  
+        &:focus{
+            color:rgb(240, 105, 42);
+        }
+    }
+}
+
+.bi.bi-search{
+    color: aliceblue;
+    font-size: 20px;    
+}
+/* ---熱門搜尋關鍵字---*/
+.groupSearchBar .groupSearchBar_wrap .keyword_wrap{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    
+    .topSearch{
+        padding-left: 10%;
+    }
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+
+        li .tag{
+            border-radius: 5px;
+            background: #007183;
+            color: #FFFFFF;
+            position: relative;
+            margin-right: 20px;
+            &:after{
+                content: '';
+                display: block;
+                position: absolute;
+                left: 120%;
+                bottom: 0;
+                width: 2px;
+                height: 15px;
+                background: #ccc;
+            }
+        }
+    }
+}
+// 卡片上下距離拉開
+.groupContent .groupContent_wrap .card{
+    margin-bottom: 30px;
+}
+ /* 手機的篩選器 */
+.groupContent .groupContent_wrap .filterMobile{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(240, 105, 42);
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 60px;
+    margin: auto;
+}
+.groupContent .groupContent_wrap .filter{
+    /* ---"篩選下拉式選單"手機時不見---*/
+    display: none;
+    &.is_active {
+        display: block;
+    }
+    &_wrap{
+        width: 100%;
+        background-color:#007183;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 10px;
+
+        .dropdownMenu{
+            width: 100%;
+            margin: 30px 0;
+            background-color:#FFFFFF;
+        }
+        .filterBtn{
+            cursor: pointer;
+            width: 20%;
+            background-color: #ff7e29;
+            margin: 10px auto;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+    }
+}
+//針對卡片的連結處理
+.groupCard {
+    position: relative;
+    .link{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+}
+//我要建團
+.joinBtnLink{
+    position: fixed;
+    z-index: 5;
+}
+/* only for width above 768px */
+@media screen and (min-width: 768px) {
+    /* 圓圓的篩選器消失 */
+    .groupContent .groupContent_wrap .filterMobile{
+        display: none;
+    }
+    /* 篩選下拉式選單出現*/
+    .groupContent .groupContent_wrap .filter{
+        display: block;
+    }
+    .groupCities_wrap .txtAnimation_txt:before{
+        content: '現正熱門揪團城市';
+        position: absolute;
+        background: #007183;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+        clip-path: circle(50% at 0% 50%);
+        animation: slide 4s 1s linear infinite; 
+    }
+    @keyframes slide {    
+        50%{
+            clip-path: circle(50% at 100% 50%);
+        }
+    }  
+}
+

@@ -1,0 +1,108 @@
+.froBackBanner{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.froBackBtn_wrap{
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    transform: translate(0,-50%);
+    display: flex;
+    justify-content: space-around;
+    .froBackBtn{
+        background-color: #007183;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+        font-size: 40px;
+        color: $white;
+        box-shadow: 3px 3px 5px #3335;
+    }
+}
+.froBackLogo{
+  position: fixed;
+  top:0 ;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 200px;
+
+}
+
+/* 動畫 */
+.froBackAnimation {
+    width: 100%;
+    height:100%;
+    min-height: 450px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #d9edfd;
+    transform: translate3d(0,0,0); 
+  }
+  
+  @each $index, $speed, $width, $height in (1, 20s, auto,100%),
+                                   (2, 30s, auto,100%),
+                                   (3, 55s, auto,100%),
+                                   (4, 75s, auto,100%),
+                                   (5, 95s, auto,100%),
+                                   (6, 120s, auto,100%) {
+    .layer-#{$index} {
+      animation: parallax_fg linear $speed infinite both;
+      background:  url(../images/frobacklogin/#{$index}.png) 0 100% repeat-x;
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size:  $width $height;
+    }
+  }
+  
+  .bear-1 {
+    background:  url(../images/mascot/bear01.png) 0 100% no-repeat;
+    z-index: 1;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size:  auto 90px;
+    animation: parallax_bike linear 10s infinite both;
+  }
+  
+  .bear-2 {
+    background:  url(../images/mascot/bear02.png) 0 100% no-repeat;
+    z-index: 1;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size:  auto 90px;
+    animation: parallax_bike linear 15s infinite both;
+  }
+  
+  .boat-1 {
+    background:  url(../images/frobacklogin/boat_1.png) 0 100% no-repeat;
+    z-index: 1;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size:  auto 90px;
+    animation: parallax_bike linear 8s infinite both;
+  }
+  @keyframes parallax_fg {  
+    0% { background-position: 2765px 100%;} 
+    100% {background-position: 550px 100%; } 
+  }
+  @keyframes parallax_bike {  
+    0% { background-position: -300px 100%;} 
+    100% {background-position: 2000px 100%; } 
+  }
