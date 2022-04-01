@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>揪團表單</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery.js"></script>
+    <script src='js/vue.js'></script>
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+</head>
+
+<body class="groupform_body">
+    <header>
+        <!-- 導覽列 -->
+        <nav class="nav_Wrap">
+            <section class="navBlock">
+                <a href="home.html">
+                    <h1 class="navLogo">
+                        <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                    </h1>
+                </a>
+                <ul class="mainNav">
+                    <a href="tour.html">
+                        <li>行程規劃</li>
+                    </a>
+                    <a href="group.html">
+                        <li>揪團旅行</li>
+                    </a>
+                    <a href="shop.html">
+                        <li>景點門票</li>
+                    </a>
+                    <a href="postcard.html">
+                        <li>客製明信片</li>
+                    </a>
+                </ul>
+                <ul class="navMember">
+                    <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                    <li>
+                        <div id="loginBoxBtn" class="loginBoxBtn">
+                            <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                        </div>
+                        <div id="memBoxBtn" class="memBoxBtn">
+                            <div class="memIcon">
+                                <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                            </div>
+                            <span id="memName"></span>
+                        </div>
+                        <!-- 登入後的會員選單-->
+                        <ul class="navDropdownMenu">
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-gear"></i> 帳號設定
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memtour.html">
+                                    <i class="bi bi-calendar2"></i> 我的行程
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memcollect.html">
+                                    <i class="bi bi-bookmark-heart"></i> 我的收藏
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memgro.html">
+                                    <i class="bi bi-file-person"></i> 我的揪團
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memorder.html">
+                                    <i class="bi bi-bag"></i> 我的訂單
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem" id="logOutBtn">
+                                <i class="bi bi-door-closed"></i> 登出
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="burger-toggle">
+                            <i class="bi bi-list"></i>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+        <!-- 漢堡 -->
+        <div class="navPage">
+            <button class="navPage--close">
+                <span class="close_line"></span>
+                <span class="close_line"></span>
+            </button>
+            <div class="navPage_wrap">
+                <!--     <div class="navPage_header"></div> -->
+                <div class="navPage_content">
+                    <!--       <div class="navPage_logo"></div> -->
+                    <div class="navPage_box">
+                        <nav class="navPage_nav">
+                            <ul class="navPage_list">
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">01</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Plan journey</span>
+                                        <span class="navPage_text--ch">行程規劃</span>
+                                    </div>
+                                    <a href="tour.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">02</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">All together</span>
+                                        <span class="navPage_text--ch">揪團旅行</span>
+                                    </div>
+                                    <a href="group.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">03</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Shop</span>
+                                        <span class="navPage_text--ch">景點門票</span>
+                                    </div>
+                                    <a href="shop.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">04</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Postcard</span>
+                                        <span class="navPage_text--ch">客製明信片</span>
+                                    </div>
+                                    <a href="postcard.html" class="navPage_link"></a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 登入表單 -->
+        <div class="froLoginBG" id="froLoginBG">
+            <section class="froLoginBlock" id="froLoginBlock">
+                <!-- 取消按鈕 -->
+                <div class="froLoginCancel">
+                    <button><i class="bi bi-x-circle-fill"></i></button>
+                </div>
+                <!-- 註冊/登入 -->
+                <div class="froLoginSwitch">
+                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                        登入
+                    </div>
+                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                        註冊
+                    </div>
+                </div>
+                <!-- 表單區 -->
+                <transition name="frologintransition" mode="out-in">
+                    <keep-alive>
+                        <component :is='content'></component>
+                    </keep-alive>
+                </transition>
+                <transition name="mascottransition">
+                    <component :is='content2'></component>
+                </transition>
+            </section>
+        </div>
+    </header>
+    <main>
+        <section class="l-full groupform">
+            <div class="groupform_wrap" id="groupform_wrap">
+                <div class="title"><span class="must">*</span>封面圖片</div>
+                <div class="uploadCover">
+                    <div class="header">
+                        <label class="btn btn--main">
+                            <input id="uploadBtn" style="display:none;" type="file">
+                            <i class="bi bi-image">上傳圖片</i>
+                        </label>
+                    </div>
+                    <div class="dropZone" id="dropZone">
+                        <div class="dropZone_title">限制大小最多2MB</div>
+                        <img id="coverImg">
+                    </div>
+                </div>
+                <div class="fieldSection">
+                    <label for="groupTitle"><span class="must">*</span>揪團名稱</label>
+                    <input type="text" id="groupTitle">
+                </div>
+                <div class="fieldSection groupform_desc">
+                    <label for="groupDesc"><span class="must">*</span>揪團描述</label>
+                    <textarea name="" id="groupDesc" cols="30" rows="10" class="desc"></textarea>
+                </div>
+                <div class="fieldSection groupform_date">
+                    <div class="date_wrap startDate_wrap">
+                        <label for="startDate"><span class="must">*</span>揪團出發日期</label>
+                        <div class="datepicker_wrap">
+                            <input type="date" class="selectDate" id="groStartDate">
+                        </div>
+                        <div class="alertMessage"></div>
+                    </div>
+                    <div class="date_wrap endDate_wrap">
+                        <label for="endDate"><span class="must">*</span>揪團結束日期</label>
+                        <div class="datepicker_wrap">
+                            <input type="date" class="selectDate" id="groEndDate">
+                        </div>
+                        <div class="alertMessage"></div>
+                    </div>
+                    <div class="date_wrap deadline_wrap">
+                        <label for="deadline"><span class="must">*</span>報名截止日期</label>
+                        <div class="datepicker_wrap">
+                            <input type="date" class="selectDate" id="applyDeadline">
+                        </div>
+                        <div class="alertMessage"></div>
+                    </div>
+                </div>
+                <div id="peopleNum" class="fieldSection groupform_peopleNum">
+                    <p class="peopleTotalNum">
+                        <span class="must">*</span>
+                        揪團設定總人數
+                    </p>
+                    <div class="groupform_peopleNum_btnWrap">
+                        <button class="numBtn" @click="subtract">-</button>
+                        <input type="text" value="0" size="1" v-model="total">
+                        <button class="numBtn" @click="add">+</button>
+                    </div>
+                </div>
+                <div class="fieldSection share">
+                    <p class="share_text">
+                        <span class="must">*</span>
+                        分攤方式
+                    </p>
+                    <select class="dropdownMenu" v-model="selectedMethod">
+                        <option v-for="way in ways">{{way}}</option>
+                    </select>
+                </div>
+                <div class="fieldSection btnSection">
+                    <button type="button" class="btn btn--main">取消</button>
+                    <button type="button" class="btn btn--main" id="publish">公開揪團</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
+            <ul class="footerMedia">
+                <a href="">
+                    <li><i class="bi bi-facebook"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-instagram"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-line"></i>
+                        </ion-icon>
+                    </li>
+                </a>
+            </ul>
+            <ul class="footerContect">
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href="">
+                    <li>服務條款</li>
+                </a><a href="">
+                    <li>購物條款</li>
+                </a><a href="">
+                    <li>付款方式</li>
+                </a>
+            </ul>
+            <p class="footerCopyRight">&copy;copy right by nobody.Please don'tsue me.</p>
+        </section>
+    </footer>
+
+    <!-- 提醒視窗 -->
+    <div class="alertBG">
+        <div class="alertBG_wrap">
+            <button class="alertBG_closeBtn">
+                <i class="bi bi-x-circle-fill"></i>
+            </button>
+            <p class="alertBG_content"></p>
+        </div>
+    </div>
+
+    <!-- 封面JS區 -->
+    <script>
+        function init() {
+            var dropZone = document.getElementById('dropZone');
+            var uploadBtn = document.getElementById('uploadBtn');
+
+            dropZone.ondragover = dragOver;
+            dropZone.ondrop = dropped;
+            uploadBtn.onchange = previewImg;
+        }
+        function dragOver(e) {
+            e.preventDefault();
+        }
+        function dropped(e) {
+            e.preventDefault();
+            let file = e.dataTransfer.files[0];
+            let readfile = new FileReader();
+            readfile.readAsDataURL(file);
+            readfile.addEventListener('load', function () {
+                let coverImg = document.getElementById('coverImg')
+                coverImg.src = readfile.result;
+            });
+        }
+        function previewImg() {
+            let file = uploadBtn.files[0];
+            let fileSize = uploadBtn.files[0].size;
+            let readFile = new FileReader();
+            readFile.readAsDataURL(file);
+            readFile.addEventListener('load', function () {
+                let coverImg = document.getElementById('coverImg');
+                let dropZone_title = document.querySelector('.dropZone_title');
+                if (fileSize > 2 * 1024 * 1024) {
+                    coverImg.src = '';
+                    dropZone_title.innerText = '上傳失敗，請上傳2MB以內的照片';
+                    dropZone_title.style.color = "#f00";
+                } else {
+                    coverImg.src = readFile.result;
+                    dropZone_title.style.display = "none";
+                    var imgSrc = coverImg.src;
+                }
+            })
+        }
+        window.addEventListener('load', init);
+    </script>
+
+    <!-- disable past dates -->
+    <script>
+        let today = new Date().toISOString().split('T')[0];
+        let selectDate = document.querySelectorAll('.selectDate');
+        for (let i = 0; (i < selectDate.length - 1); i++) {
+            selectDate[i].setAttribute('min', today);
+        }
+    </script>
+
+    <!-- VUE出下拉式選單和數量加減 -->
+    <script>
+        var vm = new Vue({
+            el: '#groupform_wrap',
+            data: {
+                total: 1,
+                selectedMethod: '免費',
+                ways: ['免費', '各自負擔', '先付訂金'],
+            },
+            methods: {
+                subtract() {
+                    if (this.total > 1) {
+                        this.total -= 1;
+                    } else {
+                        this.total = 1;
+                    }
+                },
+                add() {
+                    this.total += 1;
+                },
+            },
+        });
+    </script>
+
+    <!-- 公開揪團判斷必填表格，將資料插入資料庫的gro表格裡 -->
+    <script>
+        //驗證文字是否填入
+        function checkTextValue() {
+            let coverImg = document.getElementById('coverImg');
+            let publish = document.getElementById('publish');
+            let groupTitle = document.getElementById('groupTitle');
+            let groupDesc = document.getElementById('groupDesc');
+            if (!groupTitle.value || groupTitle.value == '' && !groupDesc.value || groupDesc.value == '') { //如果沒有值
+                console.log(!groupTitle.value);
+                console.log(!groupDesc.value);
+                console.log(groupTitle.value);
+                groupTitle.placeholder = "這是必填欄位";
+                groupDesc.placeholder = "這是必填欄位";
+                groupTitle.classList.add('alertTxtMust');
+                groupDesc.classList.add('alertTxtMust');
+            }
+            return !!groupTitle.value && !!groupDesc.value;
+        }
+
+        // 已經可以成功插入資料庫後須打開以下code: 目前共有3個地方需打開
+        //1. 驗證日期
+        function checkDate() {
+            let selectDate = document.querySelectorAll('.selectDate');
+            let alertMessage = document.querySelectorAll('.alertMessage');
+
+            //判斷空值
+            for (let i = 0; i < selectDate.length; i++) {
+                if (!selectDate[i].value) {
+                    alertMessage[i].innerText = "這是必填欄位";
+                } else {
+                    alertMessage[i].innerText = "";
+                }
+            }
+
+            //日期比較
+            if (selectDate[1].value > selectDate[0].value && selectDate[2].value && selectDate[0].value > selectDate[2].value) { //正確狀況
+                alertMessage.innerText = "";
+                return !selectDate.value;
+            } else if (selectDate[0].value >= selectDate[1].value && selectDate[0].value) { //如果出發日期>結束日期 
+                alertMessage[0].innerHTML = `<i class="bi bi-exclamation-circle"></i>出發日期不得大於等於結束日期`;
+            } else if (selectDate[2].value >= selectDate[0].value && selectDate[2].value) { //如果截止日期>出發日期
+                alertMessage[2].innerHTML = `<i class="bi bi-exclamation-circle"></i>截止日期不得大於出發日期`;
+            }
+            return !!selectDate.value;
+        }
+
+        function submitData() { //判斷全部的條件包括封面照片是否有上傳
+            let coverImg = document.getElementById('coverImg');
+            let textValid = checkTextValue();
+            let dateValid = checkDate();
+            let alertBG = document.querySelector('.alertBG');
+            let alertBG_content = document.querySelector('.alertBG_content');
+            let dropZone_title = document.querySelector('.dropZone_title');
+            let imgSrc = coverImg.getAttribute('src');
+
+            let alertBG_closeBtn = document.querySelector('.alertBG_closeBtn');
+            // console.log(textValid); 
+            // console.log(dateValid);
+
+            if (textValid == false || !imgSrc || dateValid == false) { //如果全部情況都false的話，出現視窗提醒畫面
+                alertBG.style.display = "block";
+                alertBG_content.innerText = "尚有資料未填寫完整";
+                dropZone_title.innerHTML = `請選一張您喜歡的封面照片吧<i class="bi bi-exclamation-lg"></i>`;
+                dropZone_title.style.color = "#f00";
+
+                alertBG_closeBtn.addEventListener('click', close);
+
+            } else { //代表他資料都填寫完整
+                alertBG.style.display = "block";
+                alertBG_content.innerHTML = `已成功公開揪團<i class="bi bi-exclamation-lg"></i>`;
+
+                // alertBG_closeBtn.addEventListener('click', toGroup);
+                alertBG_closeBtn.addEventListener('click', addDataToGro);
+            }
+            //假設資料未填寫完整，打叉按紐單純關閉提醒視窗功能
+            function close() {
+                alertBG.style.display = "none";
+            }
+            //資料皆完整了，打叉按紐按了之後回到揪團首頁
+            function toGroup() {
+                //3. 以下暫時放的
+                // alertBG.style.display = "none";
+                window.location.href = "./group.html";
+            }
+            //資料皆完整了，打叉按紐按了後插入資料庫的gro表格裡
+            function addDataToGro() {
+                //封面照片處理區
+                let file_data = $('#uploadBtn').prop('files')[0]; //取得上傳檔案屬性
+                let form_data = new FormData();  //建構new FormData()
+
+                let memberData = localStorage.getItem('memData');
+                let memNo = JSON.parse(memberData).memNo;
+
+                let journeyNo = location.search.split('?')[1].split('=')[1];
+
+                // 需要傳送的變數全部包在這裡
+                form_data.append('file', file_data);  //把物件加到file後面
+
+                form_data.append('groName', $('#groupTitle').val());
+                form_data.append('memNo', memNo);
+                form_data.append('groContent', $('#groupDesc').val());
+                form_data.append('groStartDate', $('#groStartDate').val());
+                form_data.append('groEndDate', $('#groEndDate').val());
+                form_data.append('applyDeadline', $('#applyDeadline').val());
+                form_data.append('journeyNo', journeyNo);
+                form_data.append('groPay', vm.selectedMethod);
+                form_data.append('groLimit', vm.total);
+
+                //處理行程預設圖片
+                let groDefaultImg = imgSrc.split('/')[2];
+                form_data.append('imgTarget', imgSrc);
+                form_data.append('groDefaultImg', groDefaultImg);
+                // console.log(imgTarget); //journeyImg-0.jpg
+                // console.log(file_data);
+                // console.log(imgSrc); //images/journeyImg/journeyImg-0.jpg
+                // console.log(form_data.get('groDefaultImg'));
+
+                $.ajax({
+                    type: 'POST',
+                    url: './phps/groupformAddData.php',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: form_data, //data只能指定單一物件 
+                    dataType: 'text',
+                    success: function (res) {
+                        console.log(res);
+                        // window.location.href = "./group.html";
+                    }
+                });
+
+            }
+        }
+        publish.addEventListener('click', submitData);
+    </script>
+
+    <!-- 使用者離開時的提醒 -->
+    <!-- <script>
+        $(window).on('beforeunload', function () {
+            return "";
+        })
+    </script> -->
+
+    <!-- 從grouplist頁面帶資料過來-->
+    <script>
+        let journeyNo = location.search.split('?')[1].split('=')[1];
+        grouplistData();
+        function grouplistData() {
+            $.ajax({
+                type: 'GET',
+                url: `./phps/groupform.php?journeyNo=${journeyNo}`,
+                dataType: 'json',
+                success: function (res) {
+                    // console.log(res);
+                    //串接封面照片
+                    coverImg = $('#coverImg');
+                    coverImg.attr('src', `images/journeyImg/${res[0].journeyImg}`);
+                    //串接揪團名稱
+                    groupTitle = $('#groupTitle');
+                    $('#groupTitle').val(res[0].journeyName);
+
+                    //串接揪團描述
+                    groupDesc = $('#groupDesc');
+                    groupDesc.text(res[0].journeyInfo);
+                }
+            });
+        }
+
+    </script>
+
+    <script src="js/forlogin.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/loading.js"></script>
+</body>
+
+</html>

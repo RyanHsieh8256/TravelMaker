@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車</title>
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+    <link rel="stylesheet" href="css/main.css">
+     <!--放在head裡-->
+     <script src="js/jquery.js"></script>
+     <script src="js/vue.js"></script>
+ </head>
+ <body>
+    <header>
+        <!-- 導覽列 -->
+<nav class="nav_Wrap">
+    <section class="navBlock">
+        <a href="home.html">
+            <h1 class="navLogo">
+                <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+            </h1>
+        </a>
+        <ul class="mainNav">
+            <a href="tour.html"><li>行程規劃</li></a>
+            <a href="group.html"><li>揪團旅行</li></a>
+            <a href="shop.html"><li>景點門票</li></a>
+            <a href="postcard.html"><li>客製明信片</li></a>
+        </ul>
+        <ul class="navMember">
+            <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+            <li>
+                <div id="loginBoxBtn" class="loginBoxBtn">
+                    <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                </div>
+                <div id="memBoxBtn" class="memBoxBtn">
+                    <div class="memIcon">
+                        <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                    </div>
+                    <span id="memName"></span>
+                </div>
+                <!-- 登入後的會員選單-->
+                <ul class="navDropdownMenu">
+                    <li class="navDropdownMenuItem">
+                        <a href="mem.html">
+                            <i class="bi bi-gear"></i> 帳號設定
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memtour.html">
+                            <i class="bi bi-calendar2"></i> 我的行程
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memcollect.html">
+                            <i class="bi bi-bookmark-heart"></i> 我的收藏
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memgro.html">
+                            <i class="bi bi-file-person"></i> 我的揪團
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memorder.html">
+                            <i class="bi bi-bag"></i> 我的訂單
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem" id="logOutBtn">
+                        <i class="bi bi-door-closed"></i> 登出
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="burger-toggle">
+                    <i class="bi bi-list"></i>
+                </div>
+            </li>
+        </ul>
+    </section>          
+    </nav>
+    <!-- 漢堡 -->
+    <div class="navPage">
+    <button class="navPage--close">
+        <span class="close_line"></span>
+        <span class="close_line"></span>
+        </button>
+    <div class="navPage_wrap">
+    <!--     <div class="navPage_header"></div> -->
+        <div class="navPage_content">
+    <!--       <div class="navPage_logo"></div> -->
+            <div class="navPage_box">
+                <nav class="navPage_nav">
+                    <ul class="navPage_list">
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">01</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Plan journey</span>
+                            <span class="navPage_text--ch">行程規劃</span>
+                            </div>
+                            <a href="tour.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">02</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">All together</span>
+                            <span class="navPage_text--ch">揪團旅行</span>
+                            </div>
+                            <a href="group.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">03</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Shop</span>
+                            <span class="navPage_text--ch">景點門票</span>
+                            </div>
+                            <a href="shop.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">04</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Postcard</span>
+                            <span class="navPage_text--ch">客製明信片</span>
+                            </div>
+                            <a href="postcard.html" class="navPage_link"></a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>  
+    </div>
+    </div>
+    <!-- 登入表單 -->
+    <div class="froLoginBG" id="froLoginBG">
+    <section class="froLoginBlock" id="froLoginBlock">
+        <!-- 取消按鈕 -->
+        <div class="froLoginCancel">
+            <button><i class="bi bi-x-circle-fill"></i></button>
+        </div>
+        <!-- 註冊/登入 -->
+        <div class="froLoginSwitch">
+            <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                登入
+            </div>
+            <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                註冊
+            </div>
+        </div> 
+        <!-- 表單區 -->
+        <transition name="frologintransition" mode="out-in">
+            <keep-alive>
+                <component :is='content'></component>
+            </keep-alive>
+        </transition>
+        <transition name="mascottransition">
+            <component :is='content2'></component>
+        </transition>
+    </section>
+    </div>
+    </header>
+    <main>
+        <section class="l-full shopcart">
+            <div class="shopcart_wrap">
+                <h2>購物車</h2>
+                <hr>
+                <div class="shoplist_wrap">
+                    <div class="noPro">
+                        <p>您的購物車是空的</p>
+                    </div>
+                </div>
+                <hr>
+                    <div class="shoplist_total">
+                        <p>使用期限: <span class="deadline"></span></p>
+                        <p class="shoptotal">總金額 TWD &emsp;$<span id="shoptotal">0</span> </p>
+                        <a href="shoppay.html" class="btn btn--cart">前往結帳</a>
+                    </div>
+            </div>
+            <div class="shopbtn">
+                <a href="shop.html"><button class="keep">繼續購物 >></button></a> 
+            </div>
+        </section>
+    </main>
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
+            <ul class="footerMedia">
+                <a href=""><li><i class="bi bi-facebook"></i></li></a>
+                <a href=""><li><i class="bi bi-instagram"></i></li></a>
+                <a href=""><li><i class="bi bi-line"></i>
+                </ion-icon></li></a>
+            </ul>
+            <ul class="footerContect">
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+            </ul>
+            <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
+        </section>
+    </footer>
+
+    <script src="js/burger.js"></script>
+    <script src="js/forlogin.js"></script>
+        
+   
+    <script>
+    //---------------deadline---------------
+        let deadline = document.querySelectorAll('.deadline'); //取得class deadline
+        
+        // console.log(deadline);
+        var myDate = new Date()     //取得目前時間
+        myDate.setMonth(myDate.getMonth() + 3);    //月份+3個月
+        // console.log(myDate);
+        let year = myDate.getFullYear();    //取得myDate的年
+        let month = myDate.getMonth()+1;    //取得myDate的月(原為實月-1，需加回來)
+        let date = myDate.getDate();        //取得myDate的日
+        
+        for(let i =0;i<deadline.length;i++){
+         deadline[i].innerText = `${year} / ${month} / ${date}`;  //結果放入html中 
+        }
+        // console.log(year, month, date);
+        // console.log(`${year} / ${month}/ ${date}`);
+        
+
+    //---------------動態新增及取localstorage資料---------------
+        
+        let cart = localStorage.getItem('cart');
+        cart = JSON.parse(cart);
+
+        // console.log(cart.length)
+        let btn_cart = document.createElement('a');
+        btn_cart.setAttribute('href',`shoppay.html?`);
+        
+        for (let i = 0;i<cart.length;i++){
+
+            let shoplist = document.createElement('div');
+            shoplist.classList.add('shoplist');
+
+            let pro_img = document.createElement('div');
+            pro_img.classList.add('pro_img');
+
+            let spotImg = document.createElement('img');
+            spotImg.classList.add('spotImg');
+            spotImg.setAttribute("src", cart[i].spotImg);
+
+            let shoplist_text = document.createElement('div');
+            shoplist_text.classList.add('shoplist_text');
+
+            let spotName = document.createElement('h3');
+            spotName.classList.add('spotName');
+            spotName.innerText = cart[i].name
+
+            let content_wrap = document.createElement('div');
+            content_wrap.classList.add('content_wrap');
+
+            let content = document.createElement('p');
+            content.classList.add('content');
+
+            let fullFare = document.createElement('span');
+            fullFare.classList.add('fullFare');
+            fullFare.innerHTML = `全票*${cart[i].qty[0]}&nbsp`
+
+            let halfFare = document.createElement('span');
+            halfFare.classList.add('halfFare');
+            halfFare.innerHTML = `半票*${cart[i].qty[1]}&nbsp`
+
+            let conTicket = document.createElement('span');
+            conTicket.classList.add('conTicket');
+            conTicket.innerHTML = `優待票*${cart[i].qty[2]}&nbsp`
+
+            let sub_box = document.createElement('p');
+            sub_box.classList.add('sub_box');
+
+            let sub = document.createElement('p');
+            sub.classList.add('sub');
+            sub.innerHTML = `$${cart[i].amount}`
+
+            let modify_icon = document.createElement('div');
+            modify_icon.classList.add('modify_icon');
+
+            let pencilbox = document.createElement('button');
+            pencilbox.classList.add('pencilbox');
+
+            let pencilboxlink = document.createElement('a');
+            pencilboxlink.classList.add('pencilboxlink');
+            pencilboxlink.setAttribute('href',`shopspot.html?id=${cart[i].id}&fullFare=${cart[i].qty[0]}&halfFare=${cart[i].qty[1]}&conTicket=${cart[i].qty[2]}`);
+
+
+            let bi_pencil= document.createElement('i');
+            bi_pencil.classList.add('bi','bi-pencil-square');
+
+            let trashbox = document.createElement('button');
+            trashbox.classList.add('trashbox');
+
+            let bi_trash= document.createElement('i');
+            bi_trash.classList.add('bi','bi-trash3');
+
+            document.querySelector('.shoplist_wrap').appendChild(shoplist);
+            shoplist.appendChild(pro_img);
+            pro_img.appendChild(spotImg);
+            shoplist.appendChild(shoplist_text);
+            shoplist_text.appendChild(spotName);
+            shoplist_text.appendChild(content_wrap);
+            content_wrap.appendChild(content);
+            content.appendChild(fullFare);
+            content.appendChild(halfFare);
+            content.appendChild(conTicket);
+
+            content_wrap.appendChild(sub_box);
+            sub_box.appendChild(sub);
+
+            content_wrap.appendChild(modify_icon);
+            modify_icon.appendChild(pencilbox);
+            pencilbox.appendChild(pencilboxlink);
+            pencilboxlink.appendChild(bi_pencil);
+            modify_icon.appendChild(trashbox);
+            trashbox.appendChild(bi_trash);
+
+        }
+
+
+    //---------------點擊刪除icon 刪除頁面顯示及單筆localstorage---------------
+        let trashbox = document.querySelectorAll('.bi-trash3');
+        let shoplist = document.querySelectorAll('.shoplist');
+        for(i=0; i<trashbox.length; i++){
+            trashbox[i].index = i;
+            trashbox[i].addEventListener('click',function(e){
+                shoplist[e.target.index].remove();
+                cart.splice(e.target.index,1);
+                localStorage.setItem('cart',JSON.stringify(cart));
+                cart = JSON.parse(localStorage.getItem('cart'));
+                totalSum();
+                location.reload();
+
+            })
+        }
+
+    //---------------總金額計算---------------
+        function totalSum(){
+            let total = 0;
+            let sub = document.getElementsByClassName('sub');
+            for(let i = 0; i<cart.length; i++){
+                total = total + parseInt(sub[i].innerText.split('$')[1]);
+            }
+
+            let shoptotal = document.getElementById("shoptotal")
+            shoptotal.innerText = total;
+
+        }
+        window.addEventListener('load',totalSum)
+
+
+    //---------------購物車為空時---------------
+       if($('.shoplist').length>0){
+           $('.noPro').css('display','none')
+           $('.deadline').css('display','block')
+           $('.btn--cart').css('display','inline-block')
+       }
+    
+        
+    //---------------結帳登入驗證---------------
+        let btnCart = document.querySelector('.btn--cart');
+        function loginCheck(){
+            if(memData == null){
+                alert('請先登入會員')
+                btnCart.removeAttribute("href")
+            }
+
+        };
+        
+        btnCart.addEventListener('click',loginCheck)
+        
+        
+    </script>
+    
+</body>
+</html>

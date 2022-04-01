@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>揪團首頁</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="./js/jquery.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js'></script>
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <!-- 導覽列 -->
+        <nav class="nav_Wrap">
+            <section class="navBlock">
+                <a href="home.html">
+                    <h1 class="navLogo">
+                        <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                    </h1>
+                </a>
+                <ul class="mainNav">
+                    <a href="tour.html">
+                        <li>行程規劃</li>
+                    </a>
+                    <a href="group.html">
+                        <li>揪團旅行</li>
+                    </a>
+                    <a href="shop.html">
+                        <li>景點門票</li>
+                    </a>
+                    <a href="postcard.html">
+                        <li>客製明信片</li>
+                    </a>
+                </ul>
+                <ul class="navMember">
+                    <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                    <li>
+                        <div id="loginBoxBtn" class="loginBoxBtn">
+                            <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                        </div>
+                        <div id="memBoxBtn" class="memBoxBtn">
+                            <div class="memIcon">
+                                <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                            </div>
+                            <span id="memName"></span>
+                        </div>
+                        <!-- 登入後的會員選單-->
+                        <ul class="navDropdownMenu">
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-gear"></i> 帳號設定
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memtour.html">
+                                    <i class="bi bi-calendar2"></i> 我的行程
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memcollect.html">
+                                    <i class="bi bi-bookmark-heart"></i> 我的收藏
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memgro.html">
+                                    <i class="bi bi-file-person"></i> 我的揪團
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memorder.html">
+                                    <i class="bi bi-bag"></i> 我的訂單
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem" id="logOutBtn">
+                                <i class="bi bi-door-closed"></i> 登出
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="burger-toggle">
+                            <i class="bi bi-list"></i>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+        <!-- 漢堡 -->
+        <div class="navPage">
+            <button class="navPage--close">
+                <span class="close_line"></span>
+                <span class="close_line"></span>
+            </button>
+            <div class="navPage_wrap">
+                <!--     <div class="navPage_header"></div> -->
+                <div class="navPage_content">
+                    <!--       <div class="navPage_logo"></div> -->
+                    <div class="navPage_box">
+                        <nav class="navPage_nav">
+                            <ul class="navPage_list">
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">01</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Plan journey</span>
+                                        <span class="navPage_text--ch">行程規劃</span>
+                                    </div>
+                                    <a href="tour.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">02</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">All together</span>
+                                        <span class="navPage_text--ch">揪團旅行</span>
+                                    </div>
+                                    <a href="group.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">03</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Shop</span>
+                                        <span class="navPage_text--ch">景點門票</span>
+                                    </div>
+                                    <a href="shop.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">04</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Postcard</span>
+                                        <span class="navPage_text--ch">客製明信片</span>
+                                    </div>
+                                    <a href="postcard.html" class="navPage_link"></a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 登入表單 -->
+        <div class="froLoginBG" id="froLoginBG">
+            <section class="froLoginBlock" id="froLoginBlock">
+                <!-- 取消按鈕 -->
+                <div class="froLoginCancel">
+                    <button><i class="bi bi-x-circle-fill"></i></button>
+                </div>
+                <!-- 註冊/登入 -->
+                <div class="froLoginSwitch">
+                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                        登入
+                    </div>
+                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                        註冊
+                    </div>
+                </div>
+                <!-- 表單區 -->
+                <transition name="frologintransition" mode="out-in">
+                    <keep-alive>
+                        <component :is='content'></component>
+                    </keep-alive>
+                </transition>
+                <transition name="mascottransition">
+                    <component :is='content2'></component>
+                </transition>
+            </section>
+        </div>
+        <!-- 流動圖片區 -->
+        <section class="l-full groupMarquee">
+            <div class="l-full groupMarquee_wrap">
+                <div class="pic">
+                    <img src="./images/group/groupMarquee_picture01.jpg" alt="group picture">
+                    <img src="./images/group/groupMarquee_picture02.jpg" alt="group picture">
+                    <img src="./images/group/groupMarquee_picture01.jpg" alt="group picture">
+                    <img src="./images/group/groupMarquee_picture02.jpg" alt="group picture">
+                </div>
+            </div>
+        </section>
+    </header>
+    <main id="filter_wrap">
+        <!-- 熱門揪團城市區 -->
+        <section class="l-full groupCities">
+            <div class="l-large groupCities_wrap">
+                <h2 class="txtAnimation_txt">現正熱門揪團城市</h2>
+                <div class="row">
+                    <div class="col-4 col-md-2">
+                        <div class="pic">
+                            <img src="./images/group/groupCities_taipei.jpg" alt="taipei">
+                        </div>
+                        <div class="txt">台北</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="pic">
+                            <img src="./images/group/groupCities_taoyuan.jpg" alt="taoyuan">
+                        </div>
+                        <div class="txt">桃園</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="pic">
+                            <img src="./images/group/groupCities_taichung.jpg" alt="taichung">
+                        </div>
+                        <div class="txt">台中</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="pic">
+                            <img src="./images/group/groupCities_kaohsiung.jpg" alt="kaohsiung">
+                        </div>
+                        <div class="txt">高雄</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="pic">
+                            <img src="./images/group/groupCities_taitung.jpg" alt="taitung">
+                        </div>
+                        <div class="txt">台東</div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="pic">
+                            <img src="./images/group/groupCities_hualian.jpg" alt="hualian">
+                        </div>
+                        <div class="txt">花蓮</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 搜尋欄 -->
+        <section class="l-full groupSearchBar">
+            <div class="l-large groupSearchBar_wrap">
+                <div class="search_wrap">
+                    <input type="text" class="search_input" id="searchInput" @change="clickHandler" v-model="searchText">
+                    <button class="search" @click="clickHandler"><i class="bi bi-search"></i></button>
+                </div>
+                <!-- <style id="m-search"></style> -->
+            </div>
+        </section>
+        <!-- 篩選下拉式選單和揪團內容區 -->
+        <section class="l-full groupContent">
+            <div class="l-large groupContent_wrap">
+                <div class="filterMobile" id="filterMobile">篩選</div>
+                <div class="row">
+                    <div class="col-12 col-md-3 filter">
+                        <div class="filter_wrap">
+                            <!--id="filter_wrap" -->
+                            <select v-model="selectedCity" class="dropdownMenu">
+                                <option value="" disabled>旅遊地區</option>
+                                <option v-for="city in cities">{{city}}</option>
+                            </select>
+                            <select v-model="selectedSpot" class="dropdownMenu">
+                                <option value="" disabled>剩餘名額</option>
+                                <option v-for="spot in spots">{{spot}}</option>
+                            </select>
+                            <select v-model="selectedDate" class="dropdownMenu">
+                                <option value="" disabled>出發日期</option>
+                                <option v-for="date in dates">{{date}}</option>
+                            </select>
+                            <button class="filterBtn" id="filterBtn" @click="clickHandler">篩選</button>
+                        </div>
+                    </div>
+                    <!-- 卡片放置區 -->
+                    <div class="row col-12 col-md-9" id="gro">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
+            <ul class="footerMedia">
+                <a href="">
+                    <li><i class="bi bi-facebook"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-instagram"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-line"></i>
+                        </ion-icon>
+                    </li>
+                </a>
+            </ul>
+            <ul class="footerContect">
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href="">
+                    <li>服務條款</li>
+                </a><a href="">
+                    <li>購物條款</li>
+                </a><a href="">
+                    <li>付款方式</li>
+                </a>
+            </ul>
+            <p class="footerCopyRight">&copy;copy right by nobody .Please don't sue me.</p>
+        </section>
+    </footer>
+    <a href="./grouplist.html" class="joinBtnLink"><button class="joinBtn">我要<br>建團</button></a>
+
+    <!-- at designated point, show the joinBtn -->
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                let scrollTop = $(window).scrollTop();
+                // console.log(scrollTop);
+                let showPoint = $('.groupCities_wrap').offset().top;
+                // console.log(showPoint);
+                if (scrollTop >= showPoint) {
+                    $('.joinBtn').addClass('showJoinBtn');
+                } else {
+                    $('.joinBtn').removeClass('showJoinBtn');
+                }
+            });
+        });
+    </script>
+
+    <!-- vue出下拉式選單 --> 
+    <script>
+    new Vue({
+            el: '#filter_wrap',
+            data: {
+                selectedCity: '',
+                selectedSpot: '',
+                selectedDate: '',
+                cities: ['北部', '中部', '南部', '東部'],
+                spots: ['5位內', '10位內', '不限名額'],
+                dates: ['3天內', '7天內', '10天內'],
+                list: [], //16
+                searchText: "",
+            },
+            computed: {
+                cityName() {
+                    switch (this.selectedCity) {
+                        case "北部":
+                            return ['基隆市', '台北市', '新北市', '桃園市', '新竹縣', '新竹市', '苗栗縣'];
+                        case "中部":
+                            return ['台中市', '彰化縣', '雲林縣', '南投縣'];
+                        case "南部":
+                            return ['嘉義市', '嘉義縣', '台南市', '高雄市', '屏東縣'];
+                        case "東部":
+                            return ['台東縣', '花蓮縣', '宜蘭縣'];
+                        default:
+                            return this.list;
+
+                    };
+                },
+                filterCities() { //1. 先抓取只篩選城市的卡片
+                    return this.list.filter(v => {
+                        return this.cityName.indexOf(v.cityName) > -1 || this.selectedCity == '';
+                    })
+                },
+                filterSpots() { //2. 抓取篩選完城市和名額的卡片
+                    return this.filterCities.filter(v => v.spots == this.selectedSpot)
+                },
+                filterDate() { //3. 抓取篩選完城市、名額和日期的卡片(最終我要的結果)
+                    return this.filterSpots.filter(v => v.date == this.selectedDate)
+                },
+                filterSearch() {
+                    return this.list.filter(v => {
+                        return (v.cityName.indexOf(this.searchText)>-1 || v.groName.indexOf(this.searchText)>-1);
+                        // console.log(v.searchText);
+                    })
+                },
+            },
+            methods: {
+                clickHandler() {
+                    console.log(this.filterCities)
+                    if (this.searchText) { //如果搜尋列有字，做以下事情
+                        this.setCard(this.filterSearch);
+                    } else { //如果搜尋列沒有字，就做下拉式選單
+                        this.setCard(this.filterCities);
+                    }
+                },
+                setCard(res) {
+                    document.getElementById('gro').innerHTML = "";
+                    for (let i = 0; i < res.length; i++) {
+                        console.log(res);
+                        //創造區
+                        //1. 創造卡片
+                        let card = document.createElement('div');
+                        card.classList.add('card', 'col-12', 'col-md-4');
+                        card.dataset.index = `${res[i].cityName},${res[i].groName} `;
+
+                        //2. 創造卡片頭部和卡片內容
+                        let card_header = document.createElement('div');
+                        let groupCard = document.createElement('div');
+                        groupCard.classList.add('groupCard', 'card_content', 'card_content--corner');
+                        card_header.classList.add('card_header');
+
+                        //3. 創造卡片頭部裡面的內容
+                        //3-1. 團主照片和名字
+                        let card_person = document.createElement('div');
+                        let card_photo = document.createElement('div');
+                        let card_name = document.createElement('div');
+                        let initiatorPic = document.createElement('img');
+                        card_person.classList.add('card_person');
+                        card_photo.classList.add('card_photo');
+                        card_name.classList.add('card_name');
+
+
+                        //4. 創造卡片內容裡的東西
+                        // 4-1. 卡片本身a連結
+                        let a = document.createElement('a');
+                        a.classList.add('link');
+                        // 4-2. 卡片身體
+                        let card_body = document.createElement('div');
+                        let card_footer = document.createElement('div');
+                        let card_tag = document.createElement('span');
+                        let card_img = document.createElement('div');
+                        let groImg = document.createElement('img');
+                        let card_date = document.createElement('div');
+                        let card_title = document.createElement('h3');
+                        let card_text = document.createElement('p');
+                        let cardTimeStart = document.createElement('p');
+                        let cardTimeEnd = document.createElement('p');
+                        let groStartDateTxt = document.createElement('span');
+                        let groStartDate = document.createElement('span');
+                        let groEndDateTxt = document.createElement('span');
+                        let groEndDate = document.createElement('span');
+
+                        card_body.classList.add('card_body');
+                        card_footer.classList.add('card_footer');
+                        card_tag.classList.add('card_tag');
+                        card_img.classList.add('card_img');
+                        card_date.classList.add('card_date');
+                        card_title.classList.add('card_title');
+                        card_text.classList.add('card_text');
+                        cardTimeStart.classList.add('card_time', 'card_time--start');
+                        cardTimeEnd.classList.add('card_time', 'card_time--end');
+                        groStartDate.classList.add('groStartDate');
+                        groEndDate.classList.add('groEndDate');
+                        // 4-3. 卡片尾部
+                        let cardTimeDeadline = document.createElement('div');
+                        let applyDeadlineTxt = document.createElement('span');
+                        cardTimeDeadline.classList.add('card_time', 'card_time--deadline');
+
+                        //插入結構和資料區
+                        //1. 把卡片本身插入目的地
+                        gro.appendChild(card);
+
+                        //2. 把卡片頭部和卡片內容一起插入卡片裡
+                        card.appendChild(card_header);
+                        card.appendChild(groupCard);
+
+                        //3. 把卡片頭部裡面的內容插入卡片頭裡面
+                        //3-1. 團主照片和名字
+                        card_header.appendChild(card_person);
+                        card_person.appendChild(card_photo);
+                        card_person.appendChild(card_name);
+                        card_photo.appendChild(initiatorPic);
+                        //***這裡串接團主大頭貼
+                        initiatorPic.src = `images/memIcon/${res[i].memIcon}`;
+                        //***這裡串接團主的名字
+                        card_name.textContent = res[i].memName;
+
+                        //4. 把卡片內容裡的小朋友們插入卡片內容
+                        // 4-1. 卡片本身a連結
+                        groupCard.appendChild(a);
+                        // a.href = './groupdetail.html';
+                        a.setAttribute('href', `groupdetail.html?groNo=${res[i].groNo}`)
+                        // 4-2. 卡片身體
+                        groupCard.appendChild(card_body);
+                        card_body.appendChild(card_tag);
+                        //***這裡串接城市
+                        card_tag.textContent = res[i].cityName;
+                        //***這裡串接揪團圖片
+                        groupCard.appendChild(card_img);
+                        groImg.src = `images/groImg/${res[i].groImg}`;
+                        card_img.appendChild(groImg);
+                        //***這裡串接出發和回程日期
+                        groupCard.appendChild(card_date);
+                        card_date.appendChild(cardTimeStart);
+                        card_date.appendChild(cardTimeEnd);
+                        cardTimeStart.appendChild(groStartDateTxt);
+                        cardTimeStart.appendChild(groStartDate);
+                        groStartDateTxt.textContent = '出發日期: ';
+                        groStartDate.innerText = res[i].groStartDate;
+                        cardTimeEnd.appendChild(groEndDateTxt);
+                        cardTimeEnd.appendChild(groEndDate);
+                        groEndDateTxt.textContent = '回程日期: ';
+                        groEndDate.innerText = res[i].groEndDate;
+                        //***這裡串接揪團名稱
+                        groupCard.appendChild(card_title);
+                        card_title.innerText = res[i].groName;
+                        //***這裡串接揪團內容
+                        groupCard.appendChild(card_text);
+                        card_text.innerText = res[i].groContent;
+                        // 4-3. 卡片尾部
+                        groupCard.appendChild(card_footer);
+                        card_footer.appendChild(cardTimeDeadline);
+                        cardTimeDeadline.appendChild(applyDeadlineTxt);
+                        applyDeadlineTxt.textContent = '報名截止日期: ';
+                        let textNode = document.createTextNode(`${res[i].applyDeadline}`);
+                        cardTimeDeadline.appendChild(textNode);
+
+                        // console.log(res[i]);
+                        console.log(res.length);
+                    }
+
+                },
+                getGroData() {
+                    $.ajax({
+                        type: 'GET',
+                        url: './phps/gro.php',
+                        dataType: 'json',
+                        success: (res) => {
+                            if (res !== false) { //如果資料庫是有資料的
+                                this.list = res;
+                            }
+                        }
+                    });
+                },
+            },
+            mounted() {
+                this.getGroData();
+            },
+        });
+    </script>
+
+    <!-- 篩選按紐 -->
+    <script>
+        function init() {
+            let filterMobile = document.getElementById('filterMobile');
+            filterMobile.addEventListener('click', showFilter);
+        }
+        function showFilter() {
+            let filter = document.querySelector('.filter');
+            filter.classList.toggle('is_active');
+
+        }
+        window.addEventListener('load', init);
+    </script>
+
+    <!-- 從資料庫撈資料到前端 -->
+    <script>
+        function getGroData() {
+            $.ajax({
+                type: 'GET',
+                url: './phps/gro.php',
+                dataType: 'json',
+                success: function (res) {
+                    if (res !== false) { //如果資料庫是有資料的
+                        for (let i = 0; i < res.length; i++) {
+                            //創造區
+                            //1. 創造卡片
+                            let card = document.createElement('div');
+                            card.classList.add('card', 'col-12', 'col-md-4');
+                            card.dataset.index = `${res[i].cityName},${res[i].groName} `;
+
+                            //2. 創造卡片頭部和卡片內容
+                            let card_header = document.createElement('div');
+                            let groupCard = document.createElement('div');
+                            groupCard.classList.add('groupCard', 'card_content', 'card_content--corner');
+                            card_header.classList.add('card_header');
+
+                            //3. 創造卡片頭部裡面的內容
+                            //3-1. 團主照片和名字
+                            let card_person = document.createElement('div');
+                            let card_photo = document.createElement('div');
+                            let card_name = document.createElement('div');
+                            let initiatorPic = document.createElement('img');
+                            card_person.classList.add('card_person');
+                            card_photo.classList.add('card_photo');
+                            card_name.classList.add('card_name');
+
+                            //4. 創造卡片內容裡的東西
+                            // 4-1. 卡片本身a連結
+                            let a = document.createElement('a');
+                            a.classList.add('link');
+                            // 4-2. 卡片身體
+                            let card_body = document.createElement('div');
+                            let card_footer = document.createElement('div');
+                            let card_tag = document.createElement('span');
+                            let card_img = document.createElement('div');
+                            let groImg = document.createElement('img');
+                            let card_date = document.createElement('div');
+                            let card_title = document.createElement('h3');
+                            let card_text = document.createElement('p');
+                            let cardTimeStart = document.createElement('p');
+                            let cardTimeEnd = document.createElement('p');
+                            let groStartDateTxt = document.createElement('span');
+                            let groStartDate = document.createElement('span');
+                            let groEndDateTxt = document.createElement('span');
+                            let groEndDate = document.createElement('span');
+
+                            card_body.classList.add('card_body');
+                            card_footer.classList.add('card_footer');
+                            card_tag.classList.add('card_tag');
+                            card_img.classList.add('card_img');
+                            card_date.classList.add('card_date');
+                            card_title.classList.add('card_title');
+                            card_text.classList.add('card_text');
+                            cardTimeStart.classList.add('card_time', 'card_time--start');
+                            cardTimeEnd.classList.add('card_time', 'card_time--end');
+                            groStartDate.classList.add('groStartDate');
+                            groEndDate.classList.add('groEndDate');
+                            // 4-3. 卡片尾部
+                            let cardTimeDeadline = document.createElement('div');
+                            let applyDeadlineTxt = document.createElement('span');
+                            cardTimeDeadline.classList.add('card_time', 'card_time--deadline');
+
+                            //插入結構和資料區
+                            //1. 把卡片本身插入目的地
+                            gro.appendChild(card);
+
+                            //2. 把卡片頭部和卡片內容一起插入卡片裡
+                            card.appendChild(card_header);
+                            card.appendChild(groupCard);
+
+                            //3. 把卡片頭部裡面的內容插入卡片頭裡面
+                            //3-1. 團主照片和名字
+                            card_header.appendChild(card_person);
+                            card_person.appendChild(card_photo);
+                            card_person.appendChild(card_name);
+                            card_photo.appendChild(initiatorPic);
+                            //***這裡串接團主大頭貼
+                            initiatorPic.src = `images/memIcon/${res[i].memIcon}`;
+                            //***這裡串接團主的名字
+                            card_name.textContent = res[i].memName;
+
+                            //4. 把卡片內容裡的小朋友們插入卡片內容
+                            // 4-1. 卡片本身a連結
+                            groupCard.appendChild(a);
+                            // a.href = './groupdetail.html';
+                            a.setAttribute('href', `groupdetail.html?groNo=${res[i].groNo}`)
+                            // 4-2. 卡片身體
+                            groupCard.appendChild(card_body);
+                            card_body.appendChild(card_tag);
+                            //***這裡串接城市
+                            card_tag.textContent = res[i].cityName;
+                            //***這裡串接揪團圖片
+                            groupCard.appendChild(card_img);
+                            groImg.src = `images/groImg/${res[i].groImg}`;
+                            card_img.appendChild(groImg);
+                            //***這裡串接出發和回程日期
+                            groupCard.appendChild(card_date);
+                            card_date.appendChild(cardTimeStart);
+                            card_date.appendChild(cardTimeEnd);
+                            cardTimeStart.appendChild(groStartDateTxt);
+                            cardTimeStart.appendChild(groStartDate);
+                            groStartDateTxt.textContent = '出發日期: ';
+                            groStartDate.innerText = res[i].groStartDate;
+                            cardTimeEnd.appendChild(groEndDateTxt);
+                            cardTimeEnd.appendChild(groEndDate);
+                            groEndDateTxt.textContent = '回程日期: ';
+                            groEndDate.innerText = res[i].groEndDate;
+                            //***這裡串接揪團名稱
+                            groupCard.appendChild(card_title);
+                            card_title.innerText = res[i].groName;
+                            //***這裡串接揪團內容
+                            groupCard.appendChild(card_text);
+                            card_text.innerText = res[i].groContent;
+                            // 4-3. 卡片尾部
+                            groupCard.appendChild(card_footer);
+                            card_footer.appendChild(cardTimeDeadline);
+                            cardTimeDeadline.appendChild(applyDeadlineTxt);
+                            applyDeadlineTxt.textContent = '報名截止日期: ';
+                            let textNode = document.createTextNode(`${res[i].applyDeadline}`);
+                            cardTimeDeadline.appendChild(textNode);
+
+                            // console.log(res[i]);
+                            console.log(res.length);
+                        }
+                    }
+                }
+            });
+            var that = $(this);
+            var mSearch = $("#m-search");
+            // 搜尋列
+            $('#searchInput').bind("change paste", function () {
+                var value = $(this).val();
+                if (!value) {
+                    mSearch.html("");
+                    return;
+                };
+                mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
+            });
+            // 下拉式選單搜尋
+            $('.dropdownMenu').bind("click", function () {
+                var value = $(this).val();
+                if (!value) {
+                    mSearch.html("");
+                    return;
+                };
+                mSearch.html('.card:not([data-index*="' + value.toLowerCase() + '"]) {display: none;}');
+            });
+        };
+
+
+        window.addEventListener('load', getGroData);
+    </script>
+
+    <script src="js/burger.js"></script>
+    <script src="js/forlogin.js"></script>
+    <script src="js/loading.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>訂購</title>
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+    <!--放在head裡-->
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+
+<body class="shoppay_bg">
+    <header>
+        <!-- 導覽列 -->
+<nav class="nav_Wrap">
+    <section class="navBlock">
+        <a href="home.html">
+            <h1 class="navLogo">
+                <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+            </h1>
+        </a>
+        <ul class="mainNav">
+            <a href="tour.html"><li>行程規劃</li></a>
+            <a href="group.html"><li>揪團旅行</li></a>
+            <a href="shop.html"><li>景點門票</li></a>
+            <a href="postcard.html"><li>客製明信片</li></a>
+        </ul>
+        <ul class="navMember">
+            <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+            <li>
+                <div id="loginBoxBtn" class="loginBoxBtn">
+                    <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                </div>
+                <div id="memBoxBtn" class="memBoxBtn">
+                    <div class="memIcon">
+                        <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                    </div>
+                    <span id="memName"></span>
+                </div>
+                <!-- 登入後的會員選單-->
+                <ul class="navDropdownMenu">
+                    <li class="navDropdownMenuItem">
+                        <a href="mem.html">
+                            <i class="bi bi-gear"></i> 帳號設定
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memtour.html">
+                            <i class="bi bi-calendar2"></i> 我的行程
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memcollect.html">
+                            <i class="bi bi-bookmark-heart"></i> 我的收藏
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memgro.html">
+                            <i class="bi bi-file-person"></i> 我的揪團
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem">
+                        <a href="memorder.html">
+                            <i class="bi bi-bag"></i> 我的訂單
+                        </a>
+                    </li>
+                    <li class="navDropdownMenuItem" id="logOutBtn">
+                        <i class="bi bi-door-closed"></i> 登出
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="burger-toggle">
+                    <i class="bi bi-list"></i>
+                </div>
+            </li>
+        </ul>
+    </section>          
+    </nav>
+    <!-- 漢堡 -->
+    <div class="navPage">
+    <button class="navPage--close">
+        <span class="close_line"></span>
+        <span class="close_line"></span>
+        </button>
+    <div class="navPage_wrap">
+    <!--     <div class="navPage_header"></div> -->
+        <div class="navPage_content">
+    <!--       <div class="navPage_logo"></div> -->
+            <div class="navPage_box">
+                <nav class="navPage_nav">
+                    <ul class="navPage_list">
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">01</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Plan journey</span>
+                            <span class="navPage_text--ch">行程規劃</span>
+                            </div>
+                            <a href="tour.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">02</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">All together</span>
+                            <span class="navPage_text--ch">揪團旅行</span>
+                            </div>
+                            <a href="group.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">03</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Shop</span>
+                            <span class="navPage_text--ch">景點門票</span>
+                            </div>
+                            <a href="shop.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">04</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Postcard</span>
+                            <span class="navPage_text--ch">客製明信片</span>
+                            </div>
+                            <a href="postcard.html" class="navPage_link"></a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>  
+    </div>
+    </div>
+    <!-- 登入表單 -->
+    <div class="froLoginBG" id="froLoginBG">
+    <section class="froLoginBlock" id="froLoginBlock">
+        <!-- 取消按鈕 -->
+        <div class="froLoginCancel">
+            <button><i class="bi bi-x-circle-fill"></i></button>
+        </div>
+        <!-- 註冊/登入 -->
+        <div class="froLoginSwitch">
+            <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                登入
+            </div>
+            <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                註冊
+            </div>
+        </div> 
+        <!-- 表單區 -->
+        <transition name="frologintransition" mode="out-in">
+            <keep-alive>
+                <component :is='content'></component>
+            </keep-alive>
+        </transition>
+        <transition name="mascottransition">
+            <component :is='content2'></component>
+        </transition>
+    </section>
+    </div>
+    </header>
+
+    <main>
+        <div class="filter">
+            <section class="l-full shoppayinfo">
+                <div class="personal_info">
+                    <h2>訂購人資料</h2>
+                    <hr>
+                    <form>
+                        <div class="nameBox">
+                            <div>姓名<span class="required">*</span><br><input type="text" class="name" placeholder="例.王大明"></div>
+                        </div>
+                        <div class="contact">
+                            <div class="phonenumber">
+                                <p>電話<span class="required">*</span></p>
+                                <div class="phone">
+                                    <input type="text" id="checkphone" onkeyup="checkPhone()" placeholder="請輸入連絡電話" maxlength="10">
+                                    <p id="phoneerror">電話有誤</p>
+                                </div>
+                            </div>
+                        
+                            <div class="emailadress">
+                                <p>email<span class="required">*</span></p>
+                                <div class="email">
+                                    <input type="text" id="checkemail" onkeyup="checkEmail()" placeholder="例. 123@mail.com">
+                                    <p id="emailerror">email有誤</p>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <section class="l-full shoppaymethod">
+                <div class="shoppaycredit">
+                     <h2>付款方式</h2>
+                    <hr>
+                    <div class="shoppaycredit_info">
+                        <form>
+                            <div class="creditnumber">
+                                <p>卡號<span class="required">*</span></p>
+                                <div class="cardnumber">
+                                    <input type="text" id="checknumber" onkeyup="checkCredit()" placeholder="0000-0000-0000-0000" minlength="9" maxlength="19">
+                                    <p id="carderror">卡號有誤</p>
+                                </div>
+                            </div>
+                            <div class="exp">
+                                <p>有效期限<span class="required">*</span></p>
+                                <div class="expdate">
+                                    <input type="text" id="expcheck" placeholder="MM/YY" maxlength="5"><p id="experror">日期有誤</p>
+                                </div>
+                            </div>
+                            <div class="pass">驗證碼<span class="required">*</span><br><input type="text"  
+                               id="cvc" placeholder="CVC/CVC" maxlength="3"></div>
+                        </form>          
+                    </div>
+                </div>
+            </section>
+
+            <section class="l-full shoppaydetail">
+                <div class="detail">
+                    <h2>消費明細</h2>
+                    <hr>
+                    <div class="shoplist_wrap"></div>
+                    <hr>
+                        <div class="shoplist_total">
+                            <p >有效期限<span class="deadline"></span></p>
+                            <p class="shoptotal">總金額 TWD$ &emsp;<span id="shoptotal">$</span> </p>
+                        </div>
+                </div>
+            </section>
+
+            <section class="l-full shoppayconfirm">
+               <button class="btn btn--cart confirm">確認付款</button>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
+            <ul class="footerMedia">
+                <a href=""><li><i class="bi bi-facebook"></i></li></a>
+                <a href=""><li><i class="bi bi-instagram"></i></li></a>
+                <a href=""><li><i class="bi bi-line"></i>
+                </ion-icon></li></a>
+            </ul>
+            <ul class="footerContect">
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+            </ul>
+            <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
+        </section>
+    </footer>
+
+    <script src="js/burger.js"></script>
+    <script src="js/forlogin.js"></script>
+
+    <script>
+
+    //---------------會員資料帶入---------------
+        let member = localStorage.getItem('memData');
+        member = JSON.parse(memData);
+
+        let name = document.querySelector('.name');
+        name.value = member.memName; 
+
+        let phone = document.getElementById('checkphone');
+        phone.value = member.memPhone;
+
+        let email = document.getElementById('checkemail');
+        email.value = member.memEmail;
+
+    //---------------deadline---------------
+        let deadline = document.querySelectorAll('.deadline'); //取得class deadline
+        
+        
+        // console.log(deadline);
+        var myDate = new Date() //取得目前時間
+        myDate.setMonth(myDate.getMonth() + 3);  //月份+3個月
+        // console.log(myDate);
+        let year = myDate.getFullYear();    //取得myDate的年
+        let month = myDate.getMonth()+1;    //取得myDate的月(原為實月-1，需加回來)
+        let date = myDate.getDate();        //取得myDate的日
+        
+        for(let i =0;i<deadline.length;i++){
+         deadline[i].innerText = `${year} / ${month} / ${date}`;  //結果放入html中 
+        }
+        // console.log(year, month, date);
+        // console.log(`${year} / ${month}/ ${date}`);
+        
+    //---------------cellphone驗證---------------
+        let cellphoneReg =/^09\d{2}-?\d{3}-?\d{3}$/; 
+
+        function checkPhone(){
+            let phone = document.getElementById('checkphone');  
+            let alert = document.getElementById('phoneerror'); 
+
+            if(cellphoneReg.test(phone.value)){                          
+                alert.style.display="none"
+            }else{
+                alert.style.display="block"  
+            }
+        }
+
+        
+    //---------------email驗證---------------
+        let emailReg = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})*$/ 
+
+
+        function checkEmail(){
+            let email = document.getElementById('checkemail'); 
+            let alert = document.getElementById('emailerror'); 
+            if(emailReg.test(email.value)){       
+                alert.style.display="none"  
+            }else{                          
+                alert.style.display="block" 
+            }
+        }
+
+
+
+    //---------------credit-card驗證---------------
+        //(卡號驗證)
+        let cardReg = /\b(?:3[47]\d{2}([\ \-]?)\d{6}\1\d|(?:(?:4\d|5[1-5]|65)\d{2}|6011)([\ \-]?)\d{4}\2\d{4}\2)\d{4}\b/
+        
+        function checkCredit(){
+            
+            let card = document.getElementById('checknumber');   //取得id number 設變數名為card
+            let alert = document.getElementById('carderror');   //取得id error 設變數名為alert
+            if(cardReg.test(card.value)){        //如果與rel比較為true
+                alert.style.display="none"  
+            }else{                          //如果比對為false
+                alert.style.display="block"  //顯示錯誤訊息
+            }
+        }
+
+        //(格式驗證)
+        $("#checknumber").on("input",function(e){
+        var oldVal = e.delegateTarget.value;  //返回指定元素
+        var newVal = oldVal.replace(/\s/g,'-').replace(/[^\d]/g,'-').replace(/(\d{4})(?=\d)/g,'$1 ');   //指定格式
+        $("#checknumber").val(newVal);
+        });
+
+
+        //(有效日期驗證)
+        document.getElementById("expcheck").addEventListener("keyup",function(e){
+            if(e.keyCode!=8 &&(e.keyCode < 37 || e.keyCode > 40)){  //不能是空白、方向鍵
+                let checknumber = this.value.replace(/\D+/g,"");  //確認使否為數字
+                let now = new Date()  //現在時間
+                let rule = (""+now.getFullYear()).slice(-2) * 100 + now.getMonth() + 1;  //取年的後兩位+月份
+            
+                this.value = checknumber.replace(/(\d{2})(\d*)/,function(d,m,y){
+                    let alert = document.getElementById('experror');  
+                    if(m > 12 || y && y.length == 2 && y * 100 + m * 1 < rule){  //月份不能大於12，年份不為0並且不可小於現在的年份
+                        alert.style.display="block"  
+                        return m + "/" + y;
+                    }else{
+                        alert.style.display="none" 
+                        return m + "/" + y;
+                    }
+                })
+            }
+        },false);
+
+    //---------------抓取明細資料及動態新增---------------
+        let cart = localStorage.getItem('cart');
+        cart = JSON.parse(cart);
+        // console.log(cart.length)
+
+        for (let i = 0;i<cart.length;i++){
+
+            let shoplist = document.createElement('div');
+            shoplist.classList.add('shoplist');
+
+            let pro_img = document.createElement('div');
+            pro_img.classList.add('pro_img');
+
+            let spotImg = document.createElement('img');
+            spotImg.classList.add('spotImg');
+            spotImg.setAttribute("src", cart[i].spotImg);
+
+            let shoplist_text = document.createElement('div');
+            shoplist_text.classList.add('shoplist_text');
+
+            let spotName = document.createElement('h3');
+            spotName.classList.add('spotName');
+            spotName.innerText = cart[i].name
+
+            let content_wrap = document.createElement('div');
+            content_wrap.classList.add('content_wrap');
+
+            let content = document.createElement('p');
+            content.classList.add('content');
+
+            let fullFare = document.createElement('span');
+            fullFare.classList.add('fullFare');
+            fullFare.innerHTML = `全票*${cart[i].qty[0]}&nbsp`
+
+            let halfFare = document.createElement('span');
+            halfFare.classList.add('halfFare');
+            halfFare.innerHTML = `半票*${cart[i].qty[1]}&nbsp`
+
+            let conTicket = document.createElement('span');
+            conTicket.classList.add('conTicket');
+            conTicket.innerHTML = `優待票*${cart[i].qty[2]}&nbsp`
+
+            let sub_box = document.createElement('p');
+            sub_box.classList.add('sub_box');
+
+            let sub = document.createElement('p');
+            sub.classList.add('sub');
+            sub.innerHTML = `$<span>${cart[i].amount}</span>`
+
+            document.querySelector('.shoplist_wrap').appendChild(shoplist);
+            shoplist.appendChild(pro_img);
+            pro_img.appendChild(spotImg);
+            shoplist.appendChild(shoplist_text);
+            shoplist_text.appendChild(spotName);
+            shoplist_text.appendChild(content_wrap);
+            content_wrap.appendChild(content);
+            content.appendChild(fullFare);
+            content.appendChild(halfFare);
+            content.appendChild(conTicket);
+            content_wrap.appendChild(sub_box);
+            sub_box.appendChild(sub);
+        }
+
+    //---------------計算總金額---------------
+        
+        var Total = 0;
+        window.addEventListener('load',function(){
+            let total = 0;
+            let sub = document.getElementsByClassName('sub');
+            for(let i = 0; i<cart.length; i++){
+                total = total + parseInt(sub[i].innerText.split('$')[1]);
+            }
+
+            let shoptotal = document.getElementById("shoptotal")
+            shoptotal.innerText = total;
+            Total =total;
+        });
+        
+
+    //--------------------------------建立訂單
+    let confirmBtn = document.querySelector('.confirm');
+    // 點擊確認結帳後要做的事
+    function cearLocal(){        
+        //訂單表 ord 需要資料 :  ordNo(php生成) memNo ordDate ordSum
+        //訂單明細 ordDetail 需要資料 : ordNo(php生成) ordDetailNo(資料庫自動新增) ticketSpotNo 全、半、優待張數、票價
+        let name = $('.name')[0].value
+        let phone = $('#checkphone')[0].value
+        let email = $('#checkemail')[0].value
+        let checknumber = $('#checknumber')[0].value
+        let expcheck = $('#expcheck')[0].value 
+        let cvc = $('#cvc')[0].value 
+        if(name == "" || phone == "" || email == "" || checknumber == "" || expcheck == "" || cvc == ""){
+            alert('必填欄位未填寫')
+        }else{
+            //會員編號
+            let ordMemNo = JSON.parse(localStorage.getItem('memData')).memNo
+            //訂單建立日期
+            let today = new Date();
+            let ordDate = today.toLocaleDateString();
+
+            //訂單總價
+            //使用上面有算過的 Total
+            let ordSum = Total;
+            //購物車裡的資料
+            let cart_data =  JSON.parse(localStorage.getItem('cart'))
+
+            // 第一層抓最新的訂單編號
+            $.ajax({
+                type:'POST',
+                url: './phps/shopGetOrdNo.php',
+                dataType: 'json',
+                success: function(lastOrdNo){
+                    //撈到的編號+1 成為此筆訂單編號
+                    lastOrdNo = lastOrdNo + 1;
+                    //設定變數存放要傳送的資料
+                    let ordData =`ordNo=${lastOrdNo}&memNo=${ordMemNo}&ordDate=${ordDate}&ordSum=${ordSum}`;
+                    //傳送資料新增訂單
+                    $.ajax({
+                        type:'POST',
+                        url: './phps/shopinsert.php',
+                        data: `${ordData}`,
+                        dataType: 'json',
+                        success: function(ordres){
+                            //訂單新增成功，開始新增訂明細
+                            let newOrdNo = ordres.ordNo;
+                            //收到shopinsert.php回傳的訂單編號，帶入insertDetail函式
+                            insertDetail(cart_data,0,newOrdNo);
+
+                        },
+                    });
+                },
+            });
+        }
+    };
+
+    confirmBtn.addEventListener('click',cearLocal);
+
+    //遞迴函式
+    function insertDetail(cartData,index,ordNo){
+        //以index和購物車資料筆數判斷執行次數
+        if(index<cartData.length){
+        //宣告ordItem變數 儲存購物車裡的資料
+        let ordItem = `ordNo=${ordNo}&spotNo=${cartData[index].id}&fullPrice=${cartData[index].ticketPrice[0]}&halfPrice=${cartData[index].ticketPrice[1]}&conPrice=${cartData[index].ticketPrice[2]}&fullqty=${cartData[index].qty[0]}&halfqty=${cartData[index].qty[1]}&conqty=${cartData[index].qty[2]}`;
+
+            $.ajax({
+                type:'POST',
+                url: './phps/shopdetail.php',
+                data: `${ordItem}`,
+                dataType: 'json',
+                success: function(res){
+                    console.log('index=',index)
+                    console.log(JSON.stringify(res))
+                    insertDetail(cartData,index+1,ordNo)
+                },
+            });
+        }else if(index == cartData.length){//如果購物車資料都傳給php了，執行清除購物車並轉跳商城
+            //跳訊息
+            window.alert('訂購成功!');
+            //清除購物車
+            localStorage.removeItem('cart');
+            //轉跳商城
+            location.href = './shop.html';
+        }
+    };
+
+    </script>
+</body>
+</html>

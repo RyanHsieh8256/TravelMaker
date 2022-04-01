@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的行程</title>
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
+
+</head>
+<body>
+    <header>
+        
+        <!-- 導覽列 -->
+        <nav class="nav_Wrap">
+        <section class="navBlock">
+            <a href="home.html">
+                <h1 class="navLogo">
+                    <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                </h1>
+            </a>
+            <ul class="mainNav">
+                <a href="tour.html"><li>行程規劃</li></a>
+                <a href="group.html"><li>揪團旅行</li></a>
+                <a href="shop.html"><li>景點門票</li></a>
+                <a href="postcard.html"><li>客製明信片</li></a>
+            </ul>
+            <ul class="navMember">
+                <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                <li>
+                    <div id="loginBoxBtn" class="loginBoxBtn">
+                        <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                    </div>
+                    <div id="memBoxBtn" class="memBoxBtn">
+                        <div class="memIcon">
+                            <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                        </div>
+                        <span id="memName"></span>
+                    </div>
+                    <!-- 登入後的會員選單-->
+                    <ul class="navDropdownMenu">
+                        <li class="navDropdownMenuItem">
+                            <a href="mem.html">
+                                <i class="bi bi-gear"></i> 帳號設定
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memtour.html">
+                                <i class="bi bi-calendar2"></i> 我的行程
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memcollect.html">
+                                <i class="bi bi-bookmark-heart"></i> 我的收藏
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memgro.html">
+                                <i class="bi bi-file-person"></i> 我的揪團
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memorder.html">
+                                <i class="bi bi-bag"></i> 我的訂單
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem" id="logOutBtn">
+                            <i class="bi bi-door-closed"></i> 登出
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="burger-toggle">
+                        <i class="bi bi-list"></i>
+                    </div>
+                </li>
+            </ul>
+        </section>          
+        </nav>
+        <!-- 漢堡 -->
+        <div class="navPage">
+        <button class="navPage--close">
+            <span class="close_line"></span>
+            <span class="close_line"></span>
+            </button>
+        <div class="navPage_wrap">
+        <!--     <div class="navPage_header"></div> -->
+            <div class="navPage_content">
+        <!--       <div class="navPage_logo"></div> -->
+                <div class="navPage_box">
+                    <nav class="navPage_nav">
+                        <ul class="navPage_list">
+                            <li class="navPage_item">
+                                <div class="navPage_header">
+                                <span class="navPage_header--num">01</span>
+                                <span class="navPage_header--line"></span>
+                                </div>
+                                <div class="navPage_text">
+                                <span class="navPage_text--en">Plan journey</span>
+                                <span class="navPage_text--ch">行程規劃</span>
+                                </div>
+                                <a href="tour.html" class="navPage_link"></a>
+                            </li>
+                            <li class="navPage_item">
+                                <div class="navPage_header">
+                                <span class="navPage_header--num">02</span>
+                                <span class="navPage_header--line"></span>
+                                </div>
+                                <div class="navPage_text">
+                                <span class="navPage_text--en">All together</span>
+                                <span class="navPage_text--ch">揪團旅行</span>
+                                </div>
+                                <a href="group.html" class="navPage_link"></a>
+                            </li>
+                            <li class="navPage_item">
+                                <div class="navPage_header">
+                                <span class="navPage_header--num">03</span>
+                                <span class="navPage_header--line"></span>
+                                </div>
+                                <div class="navPage_text">
+                                <span class="navPage_text--en">Shop</span>
+                                <span class="navPage_text--ch">景點門票</span>
+                                </div>
+                                <a href="shop.html" class="navPage_link"></a>
+                            </li>
+                            <li class="navPage_item">
+                                <div class="navPage_header">
+                                <span class="navPage_header--num">04</span>
+                                <span class="navPage_header--line"></span>
+                                </div>
+                                <div class="navPage_text">
+                                <span class="navPage_text--en">Postcard</span>
+                                <span class="navPage_text--ch">客製明信片</span>
+                                </div>
+                                <a href="postcard.html" class="navPage_link"></a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>  
+        </div>
+        </div>
+        <!-- 登入表單 -->
+        <div class="froLoginBG" id="froLoginBG">
+        <section class="froLoginBlock" id="froLoginBlock">
+            <!-- 取消按鈕 -->
+            <div class="froLoginCancel">
+                <button><i class="bi bi-x-circle-fill"></i></button>
+            </div>
+            <!-- 註冊/登入 -->
+            <div class="froLoginSwitch">
+                <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                    登入
+                </div>
+                <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                    註冊
+                </div>
+            </div> 
+            <!-- 表單區 -->
+            <transition name="frologintransition" mode="out-in">
+                <keep-alive>
+                    <component :is='content'></component>
+                </keep-alive>
+            </transition>
+            <transition name="mascottransition">
+                <component :is='content2'></component>
+            </transition>
+        </section>
+        </div>
+
+    </header>
+    <main  class="l-full">
+        <section class="memberInfoBlock">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <aside class="memberAccountWarp" id="memberAccountWarp">
+                        <div class="memberAccount">
+                            <div class="memberAccountPhto">
+                                <img src="https://picsum.photos/200/200/?random=10">
+                            </div>
+                            <div class="memberAccountName">
+                                <h3>張小明</h3>
+                            </div>
+                        </div>
+                        <ul class="memberAccountSetting">
+                            <a href="mem.html">
+                                <li class="member_SectionControlor">
+                                    <i class="bi bi-gear"></i> 帳號設定
+                                </li>
+                            </a>
+                            <a href="memtour.html">
+                                <li class="member_SectionControlor">
+                                    <i class="bi bi-calendar2"></i> 我的行程
+                                </li>
+                            </a>
+                            <a href="memcollect.html">
+                                <li class="member_SectionControlor">
+                                    <i class="bi bi-bookmark-heart"></i> 我的收藏
+                                </li>
+                            </a>
+                            <a href="memgro.html">
+                                <li class="member_SectionControlor">
+                                    <i class="bi bi-file-person"></i> 我的揪團
+                                </li>
+                            </a>
+                            <a href="memorder.html">
+                                <li class="member_SectionControlor">
+                                    <i class="bi bi-bag"></i> 我的訂單
+                                </li>
+                            </a>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="col-12 col-md-8 col-lg-9">
+                    <section class="memberProfileWarp">
+                        <!-- 我的行程 -->
+                        <section class="memberProfile  mem_sectionBG">
+                            <h3 class="memberBlockTtile">我的行程</h3>
+                            <div class="row">
+                                <div class="col-12" id="memJourneyBox">
+                                    <div class="horizontalcard" v-for="item in journeyData">
+                                        <div class="horizontalcard_pic" >
+                                            <img :src="'./images/journeyImg/' + item.journeyImg">
+                                        </div>
+                                        <div class="horizontalcard_content" >
+                                            <h4 class="horizontalcard_title">{{item.journeyName}}</h4>
+                                            <p class="horizontalcard_text text_Overflow">{{item.journeyInfo}}</p>
+                                            <div class="horizontalcard_footer">
+                                                <div class="horizontalcard_footerItem"><a :href="'groupform.html?journeyNo=' + item.journeyNo">以此行程揪團</a></div>
+                                                <div class="horizontalcard_footerItem"><a :href="'tourbuild.html#/tourEdit/' + item.journeyNo">編輯行程</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="horizontalcard_empty">
+                                        <p>沒有行程</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-12">
+                                    <a href="tourbuild.html" class="newTourBtn">建立行程</a>
+                                </div> -->
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
+            <ul class="footerMedia">
+                <a href=""><li><i class="bi bi-facebook"></i></li></a>
+                <a href=""><li><i class="bi bi-instagram"></i></li></a>
+                <a href=""><li><i class="bi bi-line"></i>
+                </ion-icon></li></a>
+            </ul>
+            <ul class="footerContect">
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+            </ul>
+            <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
+        </section>
+    </footer>
+</body>
+<script src="js/forlogin.js"></script>
+<script src="js/burger.js"></script>
+<script src="js/mem.js"></script>
+<script>
+    if(memData){
+        memData = JSON.parse(memData);
+        //建立的揪團
+        $.ajax({
+            type: "post",
+            url: "./phps/memjourney.php",
+            data: `memNo=${memData.memNo}`,
+            dataType: "text",
+            success: function (res){
+                if(res == 'noData'){
+                    $('.horizontalcard_empty').css('display','block');
+                    $('#memJourneyBox').css('display','none');
+                }else{
+                    res = JSON.parse(res);
+                    console.log(res);
+                    new Vue({
+                        el : "#memJourneyBox",
+                        data:{
+                            journeyData: res,
+                        } ,
+                    });
+                }
+            }
+        });
+    }
+</script>
+</html>

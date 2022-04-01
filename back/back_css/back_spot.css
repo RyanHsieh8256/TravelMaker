@@ -1,0 +1,162 @@
+/* 通用 */
+
+*{
+    color: #677483;
+}
+
+/* data Table */
+main .recent-orders table {
+    padding: 0;
+}
+
+table.dataTable tbody tr{
+    background-color: unset;
+}
+
+/* 關鍵搜尋欄 div    */
+.dataTables_length{
+    margin-bottom: 10px;
+}
+
+/* table 按鍵 */
+table tbody button{
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    padding: 3px 5px;
+}
+/* =========================== */
+
+/* 新增按鍵 */
+.spot-table .add-btn,
+.ticket-table .add-btn
+{
+    text-align: right;
+    margin-bottom: 10px;
+}
+.spot-table .add-btn .spot-add-btn,
+.ticket-table .add-btn .ticket-add-btn
+{
+    border-radius: 5px ;
+    cursor: pointer;
+    background: rgb(94, 246, 5);
+}
+/*============================================*/
+
+/* 詳細內容按鍵 */
+.content-info{  
+    background: #e1e1e1;
+}
+
+/* 編輯按鍵 */
+.btn-warning{
+    background: rgb(255, 187, 0);
+}
+
+.spot-table{
+    position: relative;
+}
+
+/* 訂單詳細內容 小視窗 */
+.order-info-item{
+    width: 800px;
+    height: 500px;
+    border-radius: 10px 10px 0 10px;
+    background-color:#fff;
+    position: fixed;
+    z-index: 5;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    /* transform: translate(-50%, -50%); */
+}
+
+/* 關閉詳細內容之按鍵 */
+.close-info-box-btn,
+.close-img-box-btn,
+.close-gromem-box-btn{
+    position: absolute;
+    z-index: 4;
+    background-color: #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    line-height: 3.5;
+    top: -14px;
+    right: -14px;
+}
+
+
+#ord-table{
+    width: 800px;
+    /* height: 600px; */
+}
+
+.spot-img{
+    width: 600px;
+    height: 300px;
+    border-radius: 10px 10px 0 10px;
+    background-color:#ccc;
+    position: fixed;
+    z-index: 5;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.spot-img img {
+    width: 100%;
+}
+
+/* -------------------- */
+/* 景點詳細內容燈箱 */
+.spot-info-item,.gro-info-item{
+    display: none;
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 10px 10px 0 10px;
+    background-color:#e1e1e1;
+    position: fixed;
+    z-index: 5;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    /* overflow-y: auto; */
+}
+.spot-info-item ul,.gro-info-item ul{
+    width: 100%;
+    height: 380px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+}
+.spot-info-item ul::-webkit-scrollbar,.gro-info-item ul::-webkit-scrollbar{
+    display: none;
+}
+.spot-info-item ul li,.gro-info-item ul li{
+    font-size: 1.1rem;
+    padding: 10px;
+}
+/* gro member box */
+.gro-member-item{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px 10px 0 10px;
+    background-color:#fff;
+    position: fixed;
+    z-index: 5;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    /* transform: translate(-50%, -50%); */
+}

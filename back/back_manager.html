@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台管理系統</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="./back_css/reset.css">
+    <link rel="stylesheet" href="./back_css/style.css">
+    <link rel="stylesheet" href="./back_css/back_main.css">
+    <!-- Material Icons Guide -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+    <!--link js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- 側邊攔 -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                </div>
+                <div class="close" id="closeBtn">
+                    <span class="material-icons-sharp">close</span> 
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="./back_spot.html" id="spot">
+                    <span class="material-icons-sharp">explore</span>
+                    <h3>景點資訊管理</h3>
+                </a>
+
+                <a href="./back_gro.html" id="gro-travel">
+                    <span class="material-icons-sharp">people_alt</span>
+                    <h3>揪團管理</h3>
+                </a>
+
+                <a href="./back_order.html" id="order">
+                    <span class="material-icons-sharp">receipt_long</span>
+                    <h3>訂單管理</h3>
+                </a>
+
+                <a href="./back_ticketSpot.html" id="product">
+                    <span class="material-icons-sharp">local_mall</span>
+                    <h3>票卷景點管理</h3>
+                </a>
+
+                <a href="./back_member.html" id="memeber">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>會員管理</h3>
+                </a>
+
+                <!-- <a href="#">
+                    <span class="material-icons-sharp">question_answer</span>
+                    <h3>Q&A管理</h3>
+                </a> -->
+        
+                <a href="./back_manager.html" id="manager" class="active">
+                    <span class="material-icons-sharp">manage_accounts</span>
+                    <h3>管理人員設定</h3>
+                </a>
+                
+                <a href="./back_login.html" id="sign-out">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Loging Out</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- 側邊攔 end -->
+
+        <!-- main -->
+        <main>
+            <h1>後台管理系統</h1>
+            <div class="date">
+                <span></span>
+            </div>
+            
+            <!-- Tabele  start-->
+            <div class="recent-orders">
+                <h2>管理人員資料表</h2>
+                <div class="search-btn mgr-search-btn">
+                    <button class="add-btn excute-btn" id="mgr-set-btn">新增</button>
+                    <button class="update-btn excute-btn">修改</button>
+                </div>
+                <table class="managertable" id="managertable">
+                    <thead>
+                        <tr>
+                            <td>管理員編號</td>
+                            <td>頭貼</td>
+                            <td>管理員名稱</td>
+                            <td>管理員帳號</td>
+                            <td>管理員權限</td>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <!-- main end -->
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+
+                <div class="theme-toggler ">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <!-- mgrName -->
+                        <p>HI~<span id="admin"></span></p>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="">
+                    </div>
+                </div>
+            </div>
+            <!-- top end -->
+
+            <div class="recent-updates">
+                <h2>Recent Updates</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="https://picsum.photos/80/80/?random=4">
+                        </div>
+                        <div class="message">
+                            <p><b>Mike Tyson</b> received his order of Night lion tech GPS derd.</p>
+                            <small class="text-muted">2 min Ago</small>
+                        </div>
+                    </div>
+
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="https://picsum.photos/80/80/?random=4">
+                        </div>
+                        <div class="message">
+                            <p><b>Mike Tyson</b> received his order of Night lion tech GPS derd.</p>
+                            <small class="text-muted">2 min Ago</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end updates -->
+
+            <div class="sales-analytics">
+                <h2>Sales Analytics</h2>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="material-icons-sharp">local_mall</span>
+                    </div>
+                    
+                    <div class="right">
+                        <div class="info">
+                            <h3>OFFLINE ORDERS</h3>
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
+                        <h5 class="success">+30%</h5>
+                        <h3>3849</h3>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="item online">
+                    <div class="icon">
+                        <span class="material-icons-sharp">shopping_cart</span>
+                    </div>
+
+                    <div class="right">
+                        <div class="info">
+                            <h3>ONLINE ORDERS</h3>
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
+                        <h5 class="danger">+35%</h5>
+                        <h3>3849</h3>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="item customers">
+                    <div class="icon">
+                        <span class="material-icons-sharp">person</span>
+                    </div>
+
+                    <div class="right">
+                        <div class="info">
+                            <h3>New CUSSTOMERS</h3>
+                            <small class="text-muted">Last 24 Hours</small>
+                        </div>
+                        <h5 class="success">+38%</h5>
+                        <h3>384</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新增燈箱 -->
+    <div class="lightbox add-lightbox">
+        <div class="box-item">
+            <div>
+                <label for="mgrId">管理員編號 :</label>
+                
+                <input type="text" id="mgrId" readonly="true" value="3">
+            </div>
+            <div>
+                <label for="mgrName">管理員名稱 :</label>
+                <input type="text" id="mgrName">
+            </div>
+            <div>
+                <label for="mgrAccount">管理員帳號 :</label>
+                <input type="text" id="mgrAccount">
+            </div>
+            <div>
+                <label for="mgrAccount">管理員密碼 :</label>
+                <input type="text" id="mgrAccount">
+            </div>
+            <div>
+                <label for="mgrState">管理員權限 :</label>
+                <select name="" id="">
+                    <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+                    
+                    <option value="0">normal</option>
+                    <option value="1">root</option>
+                </select>
+                <!-- <input type="text" id="memSate">  -->
+            </div>
+            
+        </div>
+         <!-- 燈箱之按鍵  -->
+        <div class="btn-area">
+            <button class="clear-box-btn">清除</button>
+            <button class="sure-box-btn">新增</button>
+        </div>
+        <div class="close-box-btn" id="close-box-btn">
+            <span class="material-icons-sharp">close</span> 
+        </div>
+    </div> 
+
+
+    
+    <script src="./back_js/main.js"></script>
+    <!-- <script src="./back_js/.js"></script> -->
+    <script src="./back_js/managertable.js"></script>
+</body>
+</html>

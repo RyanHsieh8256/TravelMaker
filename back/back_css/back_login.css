@@ -1,0 +1,69 @@
+*{
+    text-decoration: none;
+}
+.back-login{
+    width: 100%;
+    /* margin: 0 auto; */
+    
+    position: relative;
+}
+.back-login .pic{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.back-login .pic img{
+    width: 100%;
+}
+
+.login-box{
+    width: 300px;
+    border-radius: 10px;
+    background: #e1e1e1;
+    opacity: .8;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login-box h1{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 5px auto 15px;
+    text-align: center;
+}
+
+.login-box h1 span{
+    font-size: 2rem;
+}
+.login-box .login-box-item{
+    text-align: center;
+    padding: 20px;
+}
+.login-box .login-box-item div{
+    margin-bottom: 10px;
+    
+}
+.login-box .login-box-item div input{
+    font-size: 1rem;
+}
+.login-box .login-box-item .login-msg{
+    color: #f00;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+.login-box .login-box-item button{
+    width: 80px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background: #007183;
+    
+}
+.login-box .login-box-item button a{
+    color: #fff;
+}
+.login-box .login-box-item button:hover{
+    background: #ffab40;
+}

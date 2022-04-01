@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建立行程</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    <div class="popup">
+        <div class="popup_box">
+            <button class="btn btn--close popup_close">
+            <i class="bi bi-x"></i>
+            </button>
+            <div class="tourForm_box">
+            <div class="tourForm_takeName">
+                <div class="popup_header">
+                    <h3 class="third-title">新增行程</h3>
+                </div>
+                <div class="popup_inner">
+                    <form action="##" class="tourForm_form">
+                        <div class="tourForm_group">
+                        <label for="tourName" class="tourForm_label">行程名稱</label>
+                        <input type="text" class="tourForm_input" name="tourName" placeholder="給你的行程取一個名字吧!">
+                        <div class="tourForm_clear">
+                            <i class="bi bi-x"></i>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="tourForm_name">
+                        <button class="btn btn--chip">耍廢放空之旅</button>
+                        <button class="btn btn--chip">說走就走的旅行</button>
+                        <button class="btn btn--chip">全家幸福遊</button>
+                    </div>
+                </div>
+                <button class="btn btn--main" id="slide-next">下一步</button>
+            </div>
+            <div class="tourForm_selectDate">
+                <div class="popup_header">
+                <button class="btn--arrow" id="arrowBtn">
+                    <i class="bi bi-arrow-left-short"></i>       
+                </button>
+                <h3 class="third-title">選擇日期</h3>
+                </div>
+                <div class="tourForm_duration">
+                    <div class="tourForm_dateBox">
+                    <h4 class="tourForm_theText">出發日期</h4>
+                    <p class="tourForm_theDate">2022.2.22</p>
+                    </div>
+                    <div class="tourForm_days">1天</div>  
+                    <div class="tourForm_dateBox">
+                    <h4 class="tourForm_theText">返回日期</h4>
+                    <p class="tourForm_theDate">2022.2.22</p>
+                    </div>
+                </div>
+                <div class="popup_inner popup_date">
+                    <div class="tourform_group">
+                        <label for="start-date" class="tourform_label">出發日</label>
+                        <input type="date" name="start-date" id="start-date">
+                    </div>
+                    <div class="tourform_group">
+                        <label for="end-date" class="tourform_label">返回日</label>
+                        <input type="date" name="end-date" id="end-date">
+                    </div>
+                </div>
+                <div class="popup_btnBox">
+                    <button class="btn btn--cancel">略過</button>
+                    <button class="btn btn--main">
+                        <a href="tourbuild.html" class="popup_link">
+                            確定
+                        </a>
+                    </button> 
+                </div>
+            </div>
+            </div> 
+        </div>
+    </div>
+
+    <script>
+        function slidePage() {
+            let nextBtn = document.querySelector('#slide-next');
+            let arrowBtn = document.querySelector('#arrowBtn');
+            let box = document.querySelector('.tourForm_box');
+
+            nextBtn.addEventListener('click',() => {
+            let form = document.querySelector('.tourForm_form');
+            if(form.tourName.value) {
+                box.style.transform = `translateX(calc(-100% - 20px))`;
+            }  
+            
+            })
+
+            arrowBtn.addEventListener('click',() => {
+            box.style.transform = `translateX(0%)`;
+            })
+
+        }
+
+        slidePage();
+
+        function popupSwitch() {
+            let closeBtn = document.querySelector('.popup_close');
+            let popup = document.querySelector('.popup');
+
+            closeBtn.addEventListener('click',() => {
+                popup.style.display = 'none';
+            })
+        }
+        popupSwitch();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建立行程</title>
+
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    <header>
+      <!-- 導覽列 -->
+      <nav class="nav_Wrap">
+        <section class="navBlock">
+            <a href="home.html">
+                <h1 class="navLogo">
+                    <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                </h1>
+            </a>
+            <ul class="mainNav">
+                <a href="tour.html"><li>行程規劃</li></a>
+                <a href="group.html"><li>揪團旅行</li></a>
+                <a href="shop.html"><li>景點門票</li></a>
+                <a href="postcard.html"><li>客製明信片</li></a>
+            </ul>
+            <ul class="navMember">
+                <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                <li>
+                    <div id="loginBoxBtn" class="loginBoxBtn">
+                        <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                    </div>
+                    <div id="memBoxBtn" class="memBoxBtn">
+                        <div class="memIcon">
+                            <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                        </div>
+                        <span id="memName"></span>
+                    </div>
+                    <!-- 登入後的會員選單-->
+                    <ul class="navDropdownMenu">
+                        <li class="navDropdownMenuItem">
+                            <a href="mem.html">
+                                <i class="bi bi-gear"></i> 帳號設定
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memtour.html">
+                                <i class="bi bi-calendar2"></i> 我的行程
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memcollect.html">
+                                <i class="bi bi-bookmark-heart"></i> 我的收藏
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memgro.html">
+                                <i class="bi bi-file-person"></i> 我的揪團
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memorder.html">
+                                <i class="bi bi-bag"></i> 我的訂單
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem" id="logOutBtn">
+                            <i class="bi bi-door-closed"></i> 登出
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="burger-toggle">
+                        <i class="bi bi-list"></i>
+                    </div>
+                </li>
+            </ul>
+        </section>          
+      </nav>
+      <!-- 漢堡 -->
+      <div class="navPage">
+          <button class="navPage--close">
+              <span class="close_line"></span>
+              <span class="close_line"></span>
+              </button>
+          <div class="navPage_wrap">
+          <!--     <div class="navPage_header"></div> -->
+              <div class="navPage_content">
+          <!--       <div class="navPage_logo"></div> -->
+                  <div class="navPage_box">
+                      <nav class="navPage_nav">
+                          <ul class="navPage_list">
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                  <span class="navPage_header--num">01</span>
+                                  <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                  <span class="navPage_text--en">Plan journey</span>
+                                  <span class="navPage_text--ch">行程規劃</span>
+                                  </div>
+                                  <a href="tour.html" class="navPage_link"></a>
+                              </li>
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                  <span class="navPage_header--num">02</span>
+                                  <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                  <span class="navPage_text--en">All together</span>
+                                  <span class="navPage_text--ch">揪團旅行</span>
+                                  </div>
+                                  <a href="group.html" class="navPage_link"></a>
+                              </li>
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                  <span class="navPage_header--num">03</span>
+                                  <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                  <span class="navPage_text--en">Shop</span>
+                                  <span class="navPage_text--ch">景點門票</span>
+                                  </div>
+                                  <a href="shop.html" class="navPage_link"></a>
+                              </li>
+                              <li class="navPage_item">
+                                  <div class="navPage_header">
+                                  <span class="navPage_header--num">04</span>
+                                  <span class="navPage_header--line"></span>
+                                  </div>
+                                  <div class="navPage_text">
+                                  <span class="navPage_text--en">Postcard</span>
+                                  <span class="navPage_text--ch">客製明信片</span>
+                                  </div>
+                                  <a href="postcard.html" class="navPage_link"></a>
+                              </li>
+                          </ul>
+                      </nav>
+    
+                  </div>
+              </div>  
+          </div>
+      </div>
+    </header>
+    <main>
+        <div class="tourBuild_wrap">
+          <div id="map"></div>
+          <!--  行程景點列表   -->
+          <div class="tourBuild_box">
+            <div class="tourBuild_container">
+                <div class="tourBuild_inner">
+                  <button class="setBtn" id="setBtn">
+                    <i class="bi bi-gear-fill"></i>
+                    行程設定
+                  </button>
+                  <div class="tourBuild_img">
+                <img src="https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+              </div>
+                  <div class="tourBuild_empty"></div>
+                  <div class="tourBuild_content">
+                    <div class="tourBuild_header">
+
+                      <div class="tourBuild_revise">
+                          <h3 id="tourName" class="tourBuild_name">
+                            美好幸福之旅
+                          </h3>
+                          <button class="btn btn--main tourBuild_newSpot">新增景點</button>    
+                      </div>
+                      <div class="tourBuild_time">
+                        <p class="tourBuild_days">
+                          <span id="days">1</span>
+                          天
+                        </p>
+                        <p class="tourBuild_date">
+                          2022.02.24 - 2022.02.26
+                        </p>
+                      </div>
+                    </div>
+                    <div class="tourBuild_body">
+                      <div class="timeline">
+                        <!-- 時間軸tab按鈕 -->
+                            <div class="timeline_nav">
+                              <div class="timeline_box">
+                              </div>
+                            </div>
+                            <ul class="timeline_list">
+                            </ul>
+                      </div>
+                      <div class="tourBuild_news">
+                        <p>這天想去哪些景點呢?</p>
+                        <button class="btn btn--main tourBuild_newSpot">新增景點</button>     
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tourBuild_inner tourBuild_inner--bg">
+                  <!-- 搜尋box(放入搜尋列表) -->
+                  <div class="tourSearch_box">
+                    <div class="tourSearch_header">
+                      <button class="btn btn--arrow" id="arrowBtn">
+                        <i class="bi bi-arrow-left-short"></i>
+                      </button>
+                      <input type="text" class="tourForm_input" name="tourName" placeholder="搜尋景點名或縣市名" value="" id="searchSpot">
+                      <div class="tourForm_clear">
+                          <i class="bi bi-x"></i>
+                      </div>
+                    </div>
+                    <!-- 搜尋結果資料筆數 -->
+                    <div class="tourSearch_info">
+                      <span id="infoPlace"></span>
+                      共有
+                      <span id="infoNum"></span> 筆景點
+                    </div>
+                  <!--  search推薦縣市呈現(innerHTML)  -->
+                    <div class="tourSearch_content">
+                      <h3 class="p-text">熱門城市:</h3>
+                      <div class="tourSearch_btnBox">
+                        <button class="btn btn--chip">台北</button>
+                        <button class="btn btn--chip">台南</button>
+                        <button class="btn btn--chip">高雄</button>
+                        <button class="btn btn--chip">花蓮</button>
+                        <button class="btn btn--chip">台東</button>
+                      </div>
+                    <!--      景點列表        -->
+                    </div>
+                </div>
+              </div>
+            </div>        
+          </div>
+          <!-- 行程設定 -->
+          <div class="popup">
+            <div class="popup_box">
+                <button class="btn btn--close popup_close">
+                <i class="bi bi-x"></i>
+                </button>
+                <div class="tourForm_box">
+                <div class="tourForm_takeName">
+                    <div class="popup_header">
+                        <h3 class="third-title">行程設定</h3>
+                    </div>
+                    <div class="popup_inner">
+                        <form action="##" class="tourForm_form" id="tourForm">
+
+                            <label for="tourInfo" class="tourForm_label">行程描述</label>
+                            <textarea class="tour-info" id="tourInfo" placeholder="請輸入您對這個行程的描述">  
+                            </textarea>
+                            <div class="tourForm_group">
+                              <label for="tourName" class="tourForm_label">行程名稱</label>
+                              <input type="text" class="tourForm_input" name="tourName" id="formName">
+                            </div>
+                            <div class="tourform_group">
+                              <label for="start-date" class="tourform_label">日期</label>
+                              <input type="date" name="start-date" id="start-date" value="2022-03-24">
+                              <span>-</span>
+                              <input type="date" name="end-date" id="end-date" value="2022-03-24">
+                            </div>
+                        </form>
+                    </div>
+                    <button class="btn btn--main" id="checkSet">確定修改</button>
+                </div>
+                
+                </div> 
+            </div>
+        </div>
+          <!-- 景點資訊 -->
+          <div class="tourSpot">
+            <button class="btn btn--close tourSpot_close">
+              <i class="bi bi-x"></i>
+            </button>
+            <div class="tourSpot_wrap">
+              <div class="tourSpot_img">
+                <img src="https://www.eastcoast-nsa.gov.tw/image/426/640x480" alt="">
+              </div>
+              <div class="tourSpot_text">
+                <h3 class="third-title">花蓮車站</h3>
+                <div class="tourSpot_info">
+                  <div class="tourSpot_btnBox">
+                    <button class="btn btn--main">加入景點</button>   
+                    <button class="btn btn--cancel">取消加入</button>
+                  </div>
+                  <p class="p-text tourSpot_addr">
+                    花蓮縣花蓮市國聯一路100號
+                  </p>
+                </div>
+                <p class="p-text tourSpot_bewrite">
+                  各級現場系列最近機制堅持看起來影視我看要去因此，物理功夫周邊同時隱藏兩種一遍畢業生開發者大會威望表達，雙手通用我這有限公司勝利有個我一獎勵，容量無聊維護投資者素質印象股權鈴聲下載熱線湖口，台鐵男孩擁有體內事項反應，遭遇這就是如下文明更好上漲遊客資本應用都。
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- 小導覽列 -->
+          <div class="tour_btnBox">
+            <button class="btn btn--chip toggleMap">
+              <i class="bi bi-map"></i>
+            </button>
+            <button class="btn btn--main" id="saveTour">儲存</button>
+            <button class="btn btn--main" id="goBuildGroup">
+              <a href="groupform.html">公開揪團</a>
+            </button>
+            <button class="btn btn--main">分享</button>
+          </div>
+        </div>
+    </main>
+
+    <!-- 會員視窗 -->
+    <div class="froLoginBG" id="froLoginBG">
+      <section class="froLoginBlock" id="froLoginBlock">
+          <!-- 取消按鈕 -->
+          <div class="froLoginCancel">
+              <button><i class="bi bi-x-circle-fill"></i></button>
+          </div>
+          <!-- 註冊/登入 -->
+          <div class="froLoginSwitch">
+              <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                  登入
+              </div>
+              <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                  註冊
+              </div>
+          </div> 
+          <!-- 表單區 -->
+          <transition name="frologintransition" mode="out-in">
+              <keep-alive>
+                  <component :is='content'></component>
+              </keep-alive>
+          </transition>
+          <transition name="mascottransition">
+              <component :is='content2'></component>
+          </transition>
+      </section>
+    </div>
+
+    <!-- 提醒視窗 -->
+    <div class="alertBG tourBuild_alertBG">
+      <div class="alertBG_wrap">
+          <button class="alertBG_closeBtn">
+              <i class="bi bi-x-circle-fill"></i>
+          </button>
+          <p class="alertBG_content"></p>
+      </div>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/forlogin.js"></script>
+    <script src="js/tourBuild.js"></script>
+</body>
+</html>

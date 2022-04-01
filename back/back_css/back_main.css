@@ -1,0 +1,213 @@
+/* lightbox */
+/* 通用 */
+table.dataTable tbody tr{
+    background-color: unset;
+}
+main .recent-orders table {
+    padding: 0;
+}
+.dataTables_length{
+    margin-bottom: 10px;
+}
+/* 新增按鍵 */
+/* .spot-table .add-btn{
+    text-align: right;
+    margin-bottom: 10px;
+}
+.spot-table .add-btn .spot-add-btn{
+    border-radius: 5px ;
+    cursor: pointer;
+    background: rgb(94, 246, 5);
+} */
+/*============================================*/
+/* 查詢案鍵 */
+.search-btn{
+    text-align: right;
+}
+/* main .recent-orders .search-btn{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+} */
+/* mgr */
+main .recent-orders .mgr-search-btn{
+    display: flex;
+    justify-content: right;
+    margin-bottom: 5px;
+}
+main .recent-orders .search-btn button{
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background: #fff;
+    border: none;
+    margin-right: 5px;
+}
+main .recent-orders .search-btn button:hover{
+    background: #ccc;
+    
+}
+/* close-btn 關閉燈箱按鍵*/
+.lightbox .close-box-btn,
+.spot-add-lightbox .close-box-btn
+,.ticket-add-lightbox .close-box-btn{
+    position: absolute;
+    z-index: 4;
+    top: -12px;
+    right: -10px;
+    background-color: #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    line-height: 3.5;
+}
+/* 下拉式選單篩選 */
+.filter,.filter option{
+    cursor: pointer;
+    
+}
+/* ===================================== */
+/* 燈箱 */
+.lightbox,
+.spot-add-lightbox{
+    box-sizing: border-box;
+    width: 600px;
+    /* height: 200px; */
+    padding: .8rem;
+
+    border-radius: 10px;
+
+    background: #ccc;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.lightbox .box-item,
+.spot-add-lightbox .box-item
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+}
+
+.lightbox .box-item div,
+.spot-add-lightbox .box-item div{
+    display: inline-block;
+    /* width: 190px; */
+    margin-right: 10px;
+    text-align: right;
+}
+.box-item div>input,
+.box-item div>select{
+    width: 8rem;
+    margin:5px ;
+}
+
+/* btn 清除與確定按鍵*/
+.lightbox .btn-area,
+.spot-add-lightbox .btn-area,
+.ticket-add-lightbox .btn-area{
+    text-align: right;
+}
+
+.btn-area button{
+    border-radius: 10px;
+    margin-right: 5px;
+    display: inline-block;
+    width: 60px;
+    cursor: pointer;
+}
+/*  */
+.filter select{
+    padding:3px;
+    
+}
+/* ================================ */
+/* 新增 */
+
+/* ------------------------------ */
+/* 狀態按鍵 */
+.toggle-btn{
+    width: 50px;
+    height: 25px;
+    /* margin: 5px; */
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    background :#eee;
+    top: 5px;
+}
+
+.cb-value{
+    position: absolute;
+    left:0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 9;
+    cursor:pointer;
+}
+.toggle-btn.active .round-btn {
+    left: 28px;
+    background: red;
+}
+
+.toggle-btn .round-btn {
+width: 20px;
+height: 20px;
+background-color: green;
+border-radius: 50%;
+display: inline-block;
+position: absolute;
+left: 3px;
+top: 50%;
+margin-top: -10px;
+/* transition: all 0.5s ease-in-out; */
+}
+/* ======================================= */
+
+/* 景點票卷新增燈箱 */
+
+.ticket-add-lightbox{
+    width: 580px;
+    padding: .8rem;
+    border-radius: 10px;
+    background: #ccc;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    
+}
+
+.ticket-add-lightbox .ticket-box-item{
+    width: 520px;margin: 0 auto;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; */
+}
+
+.ticket-add-lightbox .ticket-box-item tr{
+    margin-bottom: 10px;
+}
+
+.ticket-add-lightbox .ticket-box-item td{
+    padding: 5px;
+}
+
+.ticket-add-lightbox .ticket-box-item td>input{
+    box-sizing: border-box;
+    width: 180px;
+}
+/* ========================================== */

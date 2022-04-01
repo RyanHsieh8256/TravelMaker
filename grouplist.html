@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>揪團清單</title>
+    <script src="./js/jquery.js"></script>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+    <script src="./js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- 揪團清單大標題 -->
+    <header>
+        <!-- 導覽列 -->
+        <nav class="nav_Wrap">
+            <section class="navBlock">
+                <a href="home.html">
+                    <h1 class="navLogo">
+                        <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                    </h1>
+                </a>
+                <ul class="mainNav">
+                    <a href="tour.html">
+                        <li>行程規劃</li>
+                    </a>
+                    <a href="group.html">
+                        <li>揪團旅行</li>
+                    </a>
+                    <a href="shop.html">
+                        <li>景點門票</li>
+                    </a>
+                    <a href="postcard.html">
+                        <li>客製明信片</li>
+                    </a>
+                </ul>
+                <ul class="navMember">
+                    <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                    <li>
+                        <div id="loginBoxBtn" class="loginBoxBtn">
+                            <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                        </div>
+                        <div id="memBoxBtn" class="memBoxBtn">
+                            <div class="memIcon">
+                                <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                            </div>
+                            <span id="memName"></span>
+                        </div>
+                        <!-- 登入後的會員選單-->
+                        <ul class="navDropdownMenu">
+                            <li class="navDropdownMenuItem">
+                                <a href="mem.html">
+                                    <i class="bi bi-gear"></i> 帳號設定
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memtour.html">
+                                    <i class="bi bi-calendar2"></i> 我的行程
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memcollect.html">
+                                    <i class="bi bi-bookmark-heart"></i> 我的收藏
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memgro.html">
+                                    <i class="bi bi-file-person"></i> 我的揪團
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem">
+                                <a href="memorder.html">
+                                    <i class="bi bi-bag"></i> 我的訂單
+                                </a>
+                            </li>
+                            <li class="navDropdownMenuItem" id="logOutBtn">
+                                <i class="bi bi-door-closed"></i> 登出
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="burger-toggle">
+                            <i class="bi bi-list"></i>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+        <!-- 漢堡 -->
+        <div class="navPage">
+            <button class="navPage--close">
+                <span class="close_line"></span>
+                <span class="close_line"></span>
+            </button>
+            <div class="navPage_wrap">
+                <!--     <div class="navPage_header"></div> -->
+                <div class="navPage_content">
+                    <!--       <div class="navPage_logo"></div> -->
+                    <div class="navPage_box">
+                        <nav class="navPage_nav">
+                            <ul class="navPage_list">
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">01</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Plan journey</span>
+                                        <span class="navPage_text--ch">行程規劃</span>
+                                    </div>
+                                    <a href="tour.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">02</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">All together</span>
+                                        <span class="navPage_text--ch">揪團旅行</span>
+                                    </div>
+                                    <a href="group.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">03</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Shop</span>
+                                        <span class="navPage_text--ch">景點門票</span>
+                                    </div>
+                                    <a href="shop.html" class="navPage_link"></a>
+                                </li>
+                                <li class="navPage_item">
+                                    <div class="navPage_header">
+                                        <span class="navPage_header--num">04</span>
+                                        <span class="navPage_header--line"></span>
+                                    </div>
+                                    <div class="navPage_text">
+                                        <span class="navPage_text--en">Postcard</span>
+                                        <span class="navPage_text--ch">客製明信片</span>
+                                    </div>
+                                    <a href="postcard.html" class="navPage_link"></a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 登入表單 -->
+        <div class="froLoginBG" id="froLoginBG">
+            <section class="froLoginBlock" id="froLoginBlock">
+                <!-- 取消按鈕 -->
+                <div class="froLoginCancel">
+                    <button><i class="bi bi-x-circle-fill"></i></button>
+                </div>
+                <!-- 註冊/登入 -->
+                <div class="froLoginSwitch">
+                    <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                        登入
+                    </div>
+                    <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                        註冊
+                    </div>
+                </div>
+                <!-- 表單區 -->
+                <transition name="frologintransition" mode="out-in">
+                    <keep-alive>
+                        <component :is='content'></component>
+                    </keep-alive>
+                </transition>
+                <transition name="mascottransition">
+                    <component :is='content2'></component>
+                </transition>
+            </section>
+        </div>
+        <section class="l-full grouplistTitle">
+            <div class="l-medium grouplistTitle_wrap">
+                <span class="h2"></span>
+                <span class="cursor"></span>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="l-full grouplistContent">
+            <div class="l-large grouplistCollect_wrap">
+                <div class="subtitle_wrap">
+                    <i class="bi bi-heart"></i>
+                    <h3>我的收藏行程</h3>
+                </div>
+                <div class="myTour_wrap">
+                    <div class="myTour">
+                        <p>您還沒收藏過行程唷...</p>
+                    </div>
+                    <div class="owl-carousel grouplistOwl">
+                    </div>
+                </div>
+
+            </div>
+            <div class="l-large grouplistBuildList_wrap">
+                <div class="subtitle_wrap">
+                    <i class="bi bi-pencil"></i>
+                    <h3>我建立的行程</h3>
+                </div>
+                <div class="myTour_wrap">
+                    <div class="myTour">
+                        <p>您還沒建立過行程唷...</p>
+                        <button class="btn btn--main homeTour_point--start">建立行程去</button>
+                    </div>
+                    <div class="owl-carousel grouplistOwl">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer_Wrap">
+        <section class="footerBlock">
+            <ul class="footerMedia">
+                <a href="">
+                    <li><i class="bi bi-facebook"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-instagram"></i></li>
+                </a>
+                <a href="">
+                    <li><i class="bi bi-line"></i>
+                        </ion-icon>
+                    </li>
+                </a>
+            </ul>
+            <ul class="footerContect">
+                <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+                <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+                <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+                <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+            </ul>
+            <ul class="footerTerms">
+                <a href="">
+                    <li>服務條款</li>
+                </a><a href="">
+                    <li>購物條款</li>
+                </a><a href="">
+                    <li>付款方式</li>
+                </a>
+            </ul>
+            <p class="footerCopyRight">&copy;copy right by nobody. Please don't sue me.</p>
+        </section>
+    </footer>
+
+    <!-- popup -->
+    <div class="popup">
+        <div class="popup_box">
+            <button class="btn btn--close popup_close">
+                <i class="bi bi-x"></i>
+            </button>
+            <div class="tourForm_box">
+                <div class="tourForm_takeName">
+                    <div class="popup_header">
+                        <h3 class="third-title">新增行程</h3>
+                    </div>
+                    <div class="popup_inner">
+                        <form action="##" class="tourForm_form">
+                            <div class="tourForm_group">
+                                <label for="tourName" class="tourForm_label">行程名稱</label>
+                                <input type="text" class="tourForm_input" name="tourName" id="tourName" placeholder="給你的行程取一個名字吧!">
+                                <div class="tourForm_clear">
+                                    <i class="bi bi-x"></i>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="tourForm_name">
+                            <button class="btn btn--chip">耍廢放空之旅</button>
+                            <button class="btn btn--chip">說走就走的旅行</button>
+                            <button class="btn btn--chip">全家幸福遊</button>
+                        </div>
+                    </div>
+                    <button class="btn btn--main" id="slide-next">下一步</button>
+                </div>
+                <div class="tourForm_selectDate">
+                    <div class="popup_header">
+                        <button class="btn--arrow" id="arrowBtn">
+                            <i class="bi bi-arrow-left-short"></i>
+                        </button>
+                        <h3 class="third-title">選擇日期</h3>
+                    </div>
+                    <div class="tourForm_duration">
+                        <div class="tourForm_dateBox">
+                            <h4 class="tourForm_theText">出發日期</h4>
+                            <p class="tourForm_theDate" id="goDay">2022.3.24</p>
+                        </div>
+                        <div class="tourForm_days" id="days">1天</div>
+                        <div class="tourForm_dateBox">
+                            <h4 class="tourForm_theText">返回日期</h4>
+                            <p class="tourForm_theDate" id="backDay">2022.3.24</p>
+                        </div>
+                    </div>
+                    <div class="popup_inner popup_date">
+                        <div class="tourform_group">
+                            <label for="start-date" class="tourform_label">出發日</label>
+                            <input type="date" name="start-date" id="startDate" value="2022-03-24">
+                        </div>
+                        <div class="tourform_group">
+                            <label for="end-date" class="tourform_label">返回日</label>
+                            <input type="date" name="end-date" id="endDate" value="2022-03-24">
+                        </div>
+                    </div>
+                    <div class="popup_btnBox">
+                        <button class="btn btn--main">
+                            <a href="tourbuild.html#/tour/" class="popup_link" id="checkadd">
+                                確定
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- text animation -->
+    <script>
+        const words = ["選擇行程以建立揪團......"];
+        let cursor = gsap.to('.cursor', { opacity: 0, ease: "power2.inOut", repeat: -1 })
+
+        let masterTl = gsap.timeline({ repeat: -1 })
+        words.forEach(word => {
+            let tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 })
+            tl.to('.h2', { duration: 3, text: word })
+            masterTl.add(tl)
+        });
+    </script>
+
+    <!-- popup的JS -->
+    <script>
+        // 建立行程表單需要:
+        function popupSwitch() {
+            let closeBtn = document.querySelector('.popup_close');
+            let startBtn = document.querySelector('.homeTour_point--start');
+
+            let popup = document.querySelector('.popup');
+
+            closeBtn.addEventListener('click', () => {
+                popup.style.display = 'none';
+            })
+
+            startBtn.addEventListener('click', () => {
+                popup.style.display = 'flex';
+            })
+        }
+        popupSwitch();
+
+        function slidePage() {
+            let nextBtn = document.querySelector('#slide-next');
+            let arrowBtn = document.querySelector('#arrowBtn');
+            let box = document.querySelector('.tourForm_box');
+
+            nextBtn.addEventListener('click', () => {
+                let form = document.querySelector('.tourForm_form');
+                if (form.tourName.value) {
+                    box.style.transform = `translateX(calc(-100% - 20px))`;
+                }
+
+            })
+
+            arrowBtn.addEventListener('click', () => {
+                box.style.transform = `translateX(0%)`;
+            })
+
+        }
+
+        slidePage();
+
+        let checkadd = document.querySelector('#checkadd');
+        checkadd.addEventListener('click',storagePopup);
+
+        // 建立行程的表單，將資料存回localStorage
+        function storagePopup(e) {
+            e.preventDefault();
+            
+            if(tourName.value && startDate.value && endDate.value) {
+                location.href=`tourbuild.html#/tour/`;
+
+                let tourObj = {
+                    tourName: tourName.value,
+                    startDate: startDate.value,
+                    endDate: endDate.value
+                };
+
+                let newTourArr = [tourObj];
+
+                localStorage.setItem('newTour',JSON.stringify(newTourArr));
+
+            }else {
+                e.currentTarget.disabled = true;
+            }
+        }
+
+        function autofillWord() {
+            chipBtn = document.querySelectorAll('.btn--chip');
+            chipBtn.forEach(btn => btn.addEventListener('click',autofillWord));
+
+            function autofillWord(e) {
+                chipBtn.forEach(btn => btn.classList.remove('is_active'));
+                e.currentTarget.classList.add('is_active');
+                let curBtn = e.currentTarget.textContent;
+                tourName.value = curBtn;
+            }
+        }
+
+        autofillWord();
+        
+        // 調整popup行程日期的呈現
+        startDate.addEventListener('change',(e,i) => changeDate(e,goDay));
+        endDate.addEventListener('change',(e,i) => changeDate(e,backDay));
+
+        function changeDate(e,day) {
+            console.log(day);
+            let re = /-/gi;
+            console.log(e.currentTarget.value.replace(re,'.'));
+            day.textContent = e.currentTarget.value.replace(re,'.');
+
+            displayDay();
+        }
+
+        function displayDay() {
+            let diff = Math.abs(new Date(backDay.textContent) - new Date(goDay.textContent));
+            let day = diff/(1000 * 3600 * 24) + 1;
+
+            console.log(backDay.textContent,goDay.textContent,day);
+
+            days.textContent = `${day}天`;
+        }
+        
+    </script>
+
+    <script src="js/forlogin.js"></script>
+    <!-- 從資料庫撈資料到前端 -->
+    <script>
+        // 如果該會員是有收藏或建立過行程的就撈出卡片資料
+        let grouplistOwl = document.getElementsByClassName('grouplistOwl');
+        let myTour_wrap = document.getElementsByClassName('myTour_wrap');
+        let myTour = document.getElementsByClassName('myTour');
+        let memberData = localStorage.getItem('memData');
+        grouplistMemNo = JSON.parse(memberData).memNo;
+        console.log(grouplistMemNo);
+
+        function getMemberData() {
+            let allSuccess = 0;
+            //我收藏的行程
+            $.ajax({
+                type: 'GET',
+                url: `./phps/grouplist_collect.php?memNo=${grouplistMemNo}`,
+                dataType: 'json',
+                success: function (res) {
+                    if (res) {
+                        // console.log(res);
+                        myTour[0].style.display = 'none';
+                        for (let i = 0; i < res.length; i++) {
+                            //創造區
+                            //1. 創造卡片
+                            let grouplistSlide = document.createElement('div');
+                            grouplistSlide.classList.add('grouplistSlide');
+
+                            //2. 卡片內容
+                            let card_content = document.createElement('div');
+                            let card_body = document.createElement('div');
+                            let card_footer = document.createElement('div');
+                            card_content.classList.add('card_content');
+                            card_body.classList.add('card_body');
+                            card_footer.classList.add('card_footer');
+                            // 2-1. 卡片身體裡的東西
+                            let card_tag = document.createElement('span');
+                            let card_img = document.createElement('div');
+                            let collectImg = document.createElement('img');
+                            let card_title = document.createElement('h4');
+                            let card_text = document.createElement('p');
+
+                            card_body.classList.add('card_body');
+                            card_tag.classList.add('card_tag');
+                            card_img.classList.add('card_img');
+                            card_title.classList.add('card_title');
+                            card_text.classList.add('card_text');
+
+                            //3. 卡片尾部
+                            let chooseBtn = document.createElement('div');
+                            chooseBtn.classList.add('chooseBtn');
+                            let a = document.createElement('a');
+
+                            //插入區(我收藏的)
+                            //1. 把卡片本身插入目的地
+                            grouplistOwl[0].appendChild(grouplistSlide);
+
+                            //2. 把卡片內容插入卡片裡和把卡片身體、尾部一起插入卡片內容
+                            grouplistSlide.appendChild(card_content);
+                            card_content.appendChild(card_body);
+                            card_content.appendChild(card_footer);
+                            //2-1. 卡片身體裡的東西插入卡片身體裡
+                            card_body.appendChild(card_tag);
+                            card_body.appendChild(card_img);
+                            card_body.appendChild(card_title);
+                            card_body.appendChild(card_text);
+                            //***這裡串接城市
+                            card_tag.textContent = res[i].cityName;
+                            //***這裡串接行程的圖片
+                            collectImg.src = `images/journeyImg/${res[i].journeyImg}`;
+                            card_img.appendChild(collectImg);
+                            //***這裡串接行程的名稱
+                            card_title.innerText = res[i].journeyName;
+                            //***這裡串接行程的內容
+                            card_text.innerText = res[i].journeyInfo;
+
+                            // 3. 卡片尾部
+                            card_footer.appendChild(chooseBtn);
+                            chooseBtn.appendChild(a);
+                            a.innerText = '選擇此行程';
+                            a.href = `./groupform.html?journeyNo=${res[i].journeyNo}`;
+                        }
+                        allSuccess += 1;
+                        if (allSuccess == 2) {
+                            setCarousel();
+                        }
+
+                    }
+                }
+            });
+
+            //我建立的行程
+            $.ajax({
+                type: 'GET',
+                url: `./phps/grouplist_build.php?memNo=${grouplistMemNo}`,
+                dataType: 'json',
+                success: function (res) {
+                    if (res) { //如果資料庫有資料
+                        // console.log(res);
+                        // console.log(res.length); //1
+                        myTour[1].style.display = 'none';
+                        for (let i = 0; i < res.length; i++) {
+                            //創造區
+                            //1. 創造卡片
+                            let grouplistSlide = document.createElement('div');
+                            grouplistSlide.classList.add('grouplistSlide');
+
+                            //2. 卡片內容
+                            let card_content = document.createElement('div');
+                            let card_body = document.createElement('div');
+                            let card_footer = document.createElement('div');
+                            card_content.classList.add('card_content');
+                            card_body.classList.add('card_body');
+                            card_footer.classList.add('card_footer');
+                            // 2-1. 卡片身體裡的東西
+                            let card_tag = document.createElement('span');
+                            let card_img = document.createElement('div');
+                            let collectImg = document.createElement('img');
+                            let card_title = document.createElement('h4');
+                            let card_text = document.createElement('p');
+
+                            card_body.classList.add('card_body');
+                            card_tag.classList.add('card_tag');
+                            card_img.classList.add('card_img');
+                            card_title.classList.add('card_title');
+                            card_text.classList.add('card_text');
+
+                            //3. 卡片尾部
+                            let chooseBtn = document.createElement('div');
+                            chooseBtn.classList.add('chooseBtn');
+                            let a = document.createElement('a');
+
+                            //插入區(我收藏的)
+                            //1. 把卡片本身插入目的地
+                            grouplistOwl[1].appendChild(grouplistSlide);
+
+                            //2. 把卡片內容插入卡片裡和把卡片身體、尾部一起插入卡片內容
+                            grouplistSlide.appendChild(card_content);
+                            card_content.appendChild(card_body);
+                            card_content.appendChild(card_footer);
+                            //2-1. 卡片身體裡的東西插入卡片身體裡
+                            card_body.appendChild(card_tag);
+                            card_body.appendChild(card_img);
+                            card_body.appendChild(card_title);
+                            card_body.appendChild(card_text);
+                            //***這裡串接城市
+                            card_tag.textContent = res[i].cityName;
+                            //***這裡串接行程的圖片
+                            collectImg.src = `images/journeyImg/${res[i].journeyImg}`;
+                            card_img.appendChild(collectImg);
+                            //***這裡串接行程的名稱
+                            card_title.innerText = res[i].journeyName;
+                            //***這裡串接行程的內容
+                            card_text.innerText = res[i].journeyInfo;
+
+                            // 3. 卡片尾部
+                            card_footer.appendChild(chooseBtn);
+                            chooseBtn.appendChild(a);
+                            a.innerText = '選擇此行程';
+                            a.href = `./groupform.html?journeyNo=${res[i].journeyNo}`;
+                        }
+                        allSuccess += 1;
+                        if (allSuccess == 2) {
+                            setCarousel();
+                        }
+
+                    }
+                }
+            });
+        };
+
+        getMemberData();
+
+    </script>
+
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
+    <script src="./js/owl.carousel.js"></script>
+    <!-- slider -->
+    <script>
+        function setCarousel() {
+            $('.grouplistOwl').owlCarousel({
+                loop: false,
+                margin: 10,
+                dots: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true,
+                        loop: false
+                    },
+                    768: {
+                        items: 2,
+                        nav: true,
+                        loop: false
+                    },
+                    1200: {
+                        items: 3,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            })
+        };
+    </script>
+
+    <script src="js/burger.js"></script>
+    <script src="js/loading.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客製明信片</title>
+    <link rel="shortcut icon" href="images/logo/logo_84x50.png" type="image/png">
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery.js"></script>
+    <script
+    src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+    integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+    crossorigin="anonymous"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/jquery.ui.touch-punch.js"></script>
+</head>
+
+<body>
+<header>
+    <!-- 導覽列 -->
+    <nav class="nav_Wrap">
+        <section class="navBlock">
+            <a href="home.html">
+                <h1 class="navLogo">
+                    <img src="images/logo/logo_84x50.png" alt="TravelMaker">
+                </h1>
+            </a>
+            <ul class="mainNav">
+                <a href="tour.html"><li>行程規劃</li></a>
+                <a href="group.html"><li>揪團旅行</li></a>
+                <a href="shop.html"><li>景點門票</li></a>
+                <a href="postcard.html"><li>客製明信片</li></a>
+            </ul>
+            <ul class="navMember">
+                <li><a href="shopcart.html"><i class="bi bi-minecart-loaded"></i></a></li>
+                <li>
+                    <div id="loginBoxBtn" class="loginBoxBtn">
+                        <i class="bi bi-person-circle"></i><span>登入/註冊</span>
+                    </div>
+                    <div id="memBoxBtn" class="memBoxBtn">
+                        <div class="memIcon">
+                            <img id="memIcon" src="https://picsum.photos/50/50/?random=10">
+                        </div>
+                        <span id="memName"></span>
+                    </div>
+                    <!-- 登入後的會員選單-->
+                    <ul class="navDropdownMenu">
+                        <li class="navDropdownMenuItem">
+                            <a href="mem.html">
+                                <i class="bi bi-gear"></i> 帳號設定
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memtour.html">
+                                <i class="bi bi-calendar2"></i> 我的行程
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memcollect.html">
+                                <i class="bi bi-bookmark-heart"></i> 我的收藏
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memgro.html">
+                                <i class="bi bi-file-person"></i> 我的揪團
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem">
+                            <a href="memorder.html">
+                                <i class="bi bi-bag"></i> 我的訂單
+                            </a>
+                        </li>
+                        <li class="navDropdownMenuItem" id="logOutBtn">
+                            <i class="bi bi-door-closed"></i> 登出
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="burger-toggle">
+                        <i class="bi bi-list"></i>
+                    </div>
+                </li>
+            </ul>
+        </section>          
+    </nav>
+    <!-- 漢堡 -->
+    <div class="navPage">
+    <button class="navPage--close">
+        <span class="close_line"></span>
+        <span class="close_line"></span>
+        </button>
+    <div class="navPage_wrap">
+    <!--     <div class="navPage_header"></div> -->
+        <div class="navPage_content">
+    <!--       <div class="navPage_logo"></div> -->
+            <div class="navPage_box">
+                <nav class="navPage_nav">
+                    <ul class="navPage_list">
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">01</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Plan journey</span>
+                            <span class="navPage_text--ch">行程規劃</span>
+                            </div>
+                            <a href="tour.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">02</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">All together</span>
+                            <span class="navPage_text--ch">揪團旅行</span>
+                            </div>
+                            <a href="group.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">03</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Shop</span>
+                            <span class="navPage_text--ch">景點門票</span>
+                            </div>
+                            <a href="shop.html" class="navPage_link"></a>
+                        </li>
+                        <li class="navPage_item">
+                            <div class="navPage_header">
+                            <span class="navPage_header--num">04</span>
+                            <span class="navPage_header--line"></span>
+                            </div>
+                            <div class="navPage_text">
+                            <span class="navPage_text--en">Postcard</span>
+                            <span class="navPage_text--ch">客製明信片</span>
+                            </div>
+                            <a href="postcard.html" class="navPage_link"></a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>  
+    </div>
+    </div>
+    <!-- 登入表單 -->
+    <div class="froLoginBG" id="froLoginBG">
+    <section class="froLoginBlock" id="froLoginBlock">
+        <!-- 取消按鈕 -->
+        <div class="froLoginCancel">
+            <button><i class="bi bi-x-circle-fill"></i></button>
+        </div>
+        <!-- 註冊/登入 -->
+        <div class="froLoginSwitch">
+            <div class="froLoginSwitch_btn froLoginSwitch_active" @click="content='login',content2='loginbear'">
+                登入
+            </div>
+            <div class="froLoginSwitch_btn" @click="content='signin',content2='singinbear'">
+                註冊
+            </div>
+        </div> 
+        <!-- 表單區 -->
+        <transition name="frologintransition" mode="out-in">
+            <keep-alive>
+                <component :is='content'></component>
+            </keep-alive>
+        </transition>
+        <transition name="mascottransition">
+            <component :is='content2'></component>
+        </transition>
+    </section>
+    </div>
+</header>
+<section class="l_full">
+    <div class="postcardBlock" id="postcardBlock">
+        <h2 class="postcardTtile">客製明信片</h2>
+        <div class="postcard_wrap">
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-8">
+                    <div class="postcardContainer" id="postcardContainer">
+                        <div class="postcardBox" id="postcardBox">
+                            <img src="images/postcardelement/postbg1.png" alt="">
+                            <div class="postcardStampContainer" id="postcardStampContainer">
+                                <div class="postcardStampBox">加入圖片</div>
+                            </div>
+                            <span class="postcardText" :style="preserve">{{message}}</ㄋ>
+                            <div id="deletStamp"><i class="bi bi-trash"></i></div>
+                        </div>
+                        <div class="postcardTextInput">
+                            <textarea name="" id="" placeholder="這裡輸入文字會顯示在上方，拖曳即可移動位置" v-model="message"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 postcardRightBox">
+                    <div class="postcardBtns">
+                        <button id="appendStampBtn">新增圖片格</button>
+                        <button id="clearStampBtn">全部重設</button>
+                        <button id="btnSave" onclick="screenshot()">存檔</button>
+                    </div>
+                    <div class="postcardElements_warp">
+                        <div class="postcardTags">
+                            <div class="postcardTag">郵票</div>
+                            <div class="postcardTag">印章</div>
+                            <div class="postcardTag">吉祥物</div>
+                        </div>
+                        <div class="postcardElements">
+                            <div class="postcardElement"><img src="images/postcardelement/stamp1.png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/stamp2.png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/stamp3.png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/stamp4.png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/stamp5.png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/stamp6.png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/stamp7.png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/stamp8.png"></div>
+                        </div>
+                        <div class="postcardElements">
+                            <div class="postcardElement"><img src="images/postcardelement/seal (1).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (2).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (3).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (4).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (5).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (6).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (7).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (8).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (9).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (10).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (11).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (12).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (13).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (14).png"></div>
+                            <div class="postcardElement"><img src="images/postcardelement/seal (15).png"></div>  
+                        </div>
+                        <div class="postcardElements">
+                            <div class="postcardElement"><img src="images/mascot/bear01.png"></div>
+                            <div class="postcardElement"><img src="images/mascot/bear02.png"></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer_Wrap">
+    <section class="footerBlock">
+        <ul class="footerMedia">
+            <a href=""><li><i class="bi bi-facebook"></i></li></a>
+            <a href=""><li><i class="bi bi-instagram"></i></li></a>
+            <a href=""><li><i class="bi bi-line"></i>
+            </ion-icon></li></a>
+        </ul>
+        <ul class="footerContect">
+            <li><i class="bi bi-telephone"></i>電話:03-1234567</li>
+            <li><i class="bi bi-envelope"></i>服務信箱:<a href="mailto:abc12345@gmail.com">abc12345@gmail.com</a></li>
+            <li><i class="bi bi-clock"></i>營業時間:09:00 ~ 18:00(一)~(五)</li>
+            <li><i class="bi bi-pin-map"></i>地址:桃園市桃園區中正路99999號</li>
+        </ul>
+        <ul class="footerTerms">
+            <a href=""><li>服務條款</li></a><a href=""><li>購物條款</li></a><a href=""><li>付款方式</li></a>
+        </ul>
+        <p class="footerCopyRight">&copy;本網站為緯育TibaMe_前端設計工程師班第73期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[緯育TibaMe]，後續會由專人協助處理。</p>
+    </section>
+</footer>
+</body>
+<script src="js/forlogin.js"></script>
+<script src="js/burger.js"></script>
+
+<script>
+
+new Vue({
+    el: '#postcardContainer',
+    data: { 
+        message: '',
+    },
+    methods: {
+        setMessage(e){
+            this.message = e.target.value;
+        },
+    },
+    computed: {
+        preserve(){
+            return{
+                whiteSpace:'pre',
+                font: '13.333px',
+            }
+
+        }
+    },
+});
+</script>
+<script>
+    let postcardElement = document.querySelectorAll('.postcardElement');
+    let postcardStampContainer = document.getElementById('postcardStampContainer');
+    let appendStampBtn = document.getElementById('appendStampBtn');
+    let clearStampBtn = document.getElementById('clearStampBtn');
+    let postcardTag = document.querySelectorAll('.postcardTag');
+    let postcardElements = document.querySelectorAll('.postcardElements');
+    let postcardStampBox = document.querySelectorAll('.postcardStampBox');
+
+
+    function doFirst(){
+        //拖曳開始事件註冊
+        for(i=0;i<postcardElement.length;i++){
+            postcardElement[i].addEventListener('dragstart',startDrag);
+        }
+
+
+        for(i=0;i<postcardStampBox.length;i++){
+            postcardStampBox[i].addEventListener('dragenter',function(e){e.preventDefault()});
+            postcardStampBox[i].addEventListener('dragover',function(e){e.preventDefault()});
+            postcardStampBox[i].addEventListener('drop',dropped);
+        }
+        appendStampBtn.addEventListener('click',appendStamp);
+        clearStampBtn.addEventListener('click',clearStamp)
+
+        // 右側切換
+        for(let i = 0;i<postcardTag.length;i++){
+            postcardTag[i].index = i;
+            postcardTag[i].onclick = function(){
+                for(a=0;a<postcardElements.length;a++){
+                    postcardElements[a].style.display = 'none';
+                }
+                postcardElements[i].style.display = "flex";
+            }
+        };
+
+    };
+    // 拖曳開始
+    function startDrag(e){
+        let data = `<img src='${e.target.src}'>`;
+        e.dataTransfer.setData('image/png',data);
+    };
+
+    // 拖曳結束
+    function dropped(e){
+        e.preventDefault();
+        console.log(e.dataTransfer.getData('image/png'));
+        e.target.innerHTML = e.dataTransfer.getData('image/png');
+        e.target.style.border='none';
+    };
+    
+    //新增貼圖格
+    function appendStamp(){
+        let StampBox = document.createElement('div');
+        StampBox.className = 'postcardStampBox';
+        postcardStampContainer.appendChild(StampBox);
+
+        // 因新增物件重抓一次
+        let postcardStampBox = document.querySelectorAll('.postcardStampBox');
+        for(i=0;i<postcardStampBox.length;i++){
+            postcardStampBox[i].addEventListener('dragenter',function(e){e.preventDefault()});
+            postcardStampBox[i].addEventListener('dragover',function(e){e.preventDefault()});
+            postcardStampBox[i].addEventListener('drop',dropped);
+        }
+        $('.postcardStampBox').draggable({
+            cursor: "crosshair",
+            containment: 'parent',
+        });
+    }
+
+
+    // 刪除全部貼圖
+    function clearStamp(){
+        let childs = postcardStampContainer.childNodes;
+        for(i=childs.length - 1;i>=0;i--){
+            postcardStampContainer.removeChild(childs[i]);
+        }
+        let postcardText = document.querySelector('.postcardText');
+        postcardText.innerHTML= '';
+    }
+
+    // 貼圖格可拖曳
+    $(document).ready(function(){
+        $('.postcardStampBox').draggable({
+            cursor: "crosshair",
+            containment: 'parent',
+        });
+        $('.postcardText').draggable({
+            cursor: "crosshair",
+            containment: 'parent',
+        });
+    });
+    window.addEventListener("load",doFirst);
+</script>
+<script  src="js/html2canvas.min.js"></script>
+<script type="text/javascript">    
+    function screenshot(){
+        html2canvas(document.getElementById('postcardBox')).then(function(canvas) {
+            document.body.appendChild(canvas);
+            var postcardPic = document.createElement('a');
+            postcardPic.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+            postcardPic.download = 'image.jpg';
+            postcardPic.click();
+        });
+    }
+</script>
+</html>
